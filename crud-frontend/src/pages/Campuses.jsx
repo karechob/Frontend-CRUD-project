@@ -1,6 +1,8 @@
-import React from 'react'
-import Navigation from '../components/Navigation'
+import React, { useEffect } from 'react';
+import Navigation from '../components/Navigation';
+import { useDispatch, useSelector } from "react-redux";
 import ListingCampuses from '../components/ListingCampuses';
+import { fetchAllCampusesThunk } from '../redux/campuses/campuses.actions';
 
 function Campuses() {
   const allCampuses = useSelector((state) => state.campus.allcampus);
@@ -8,7 +10,7 @@ function Campuses() {
 
   function fetchAllCampuses() {
     console.log('RUNNING DISPATCH FROM FETCHALLCAMPUSES');
-    return dispatch(fetchAllCampusThunk());
+    return dispatch(fetchAllCampusesThunk());
   }
 
   useEffect(() => {
