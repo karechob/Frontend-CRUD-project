@@ -10,4 +10,4 @@ function SingleCampus() {
   )
 }
 
-export default SingleCampus
+export default SingleCampus;

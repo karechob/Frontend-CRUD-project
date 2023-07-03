@@ -11,4 +11,4 @@ function SingleStudent() {
   )
 }
 
-export default SingleStudent
+export default SingleStudent;
