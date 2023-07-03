@@ -1,14 +1,17 @@
-import React from 'react'
-import Navigation from '../components/Navigation'
+import React, { useEffect } from 'react';
+import Navigation from '../components/Navigation';
+import { useDispatch, useSelector } from "react-redux";
 import ListingStudents from "../components/ListingStudents";
+import { fetchAllStudentsThunk } from '../redux/students/students.actions';
 
 function Students() {
-  const allStudents = useSelector((state) => state.student.Allstudents);
+  const allStudents = useSelector((state) => state.students.allStudents);
+  console.log(" THIS IS ALL STUDENTS ->  ",allStudents);
   const dispatch = useDispatch();
 
   function fetchAllStudents() {
     console.log('RUNNING DISPATCH FROM FETCHALLSTUDENTS');
-    return dispatch(fetchAllStudentThunk());
+    return dispatch(fetchAllStudentsThunk());
   }
 
   useEffect(() => {
