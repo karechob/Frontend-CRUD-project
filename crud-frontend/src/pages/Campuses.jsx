@@ -3,12 +3,12 @@ import Navigation from '../components/Navigation'
 import ListingCampuses from '../components/ListingCampuses';
 
 function Campuses() {
-  const allCampuses = useSelector((state) => state.shoes.allShoes);
+  const allCampuses = useSelector((state) => state.campus.allcampus);
   const dispatch = useDispatch();
 
   function fetchAllCampuses() {
     console.log('RUNNING DISPATCH FROM FETCHALLCAMPUSES');
-    return dispatch(fetchAllShoesThunk());
+    return dispatch(fetchAllCampusThunk());
   }
 
   useEffect(() => {

@@ -3,12 +3,12 @@ import Navigation from '../components/Navigation'
 import ListingStudents from "../components/ListingStudents";
 
 function Students() {
-  const allStudents = useSelector((state) => state.students.allStudents);
+  const allStudents = useSelector((state) => state.student.Allstudents);
   const dispatch = useDispatch();
 
   function fetchAllStudents() {
     console.log('RUNNING DISPATCH FROM FETCHALLSTUDENTS');
-    return dispatch(fetchAllShoesThunk());
+    return dispatch(fetchAllStudentThunk());
   }
 
   useEffect(() => {
