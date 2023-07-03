@@ -6,4 +6,4 @@ function ListingStudents() {
   )
 }
 
-export default ListingStudents
+export default ListingStudents;

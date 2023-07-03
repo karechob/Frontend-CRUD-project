@@ -6,4 +6,4 @@ function ListingCampuses() {
   )
 }
 
-export default ListingCampuses
+export default ListingCampuses;
