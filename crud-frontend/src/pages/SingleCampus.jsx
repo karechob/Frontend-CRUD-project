@@ -1,8 +1,12 @@
 import React from 'react'
+import Navigation from '../components/Navigation'
 
 function SingleCampus() {
   return (
-    <div>SingleCampus</div>
+    <div>
+      <Navigation/>
+      SingleCampus
+      </div>
   )
 }
 

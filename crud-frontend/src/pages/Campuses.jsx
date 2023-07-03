@@ -1,8 +1,12 @@
 import React from 'react'
+import Navigation from '../components/Navigation'
 
 function Campuses() {
   return (
-    <div>Campuses</div>
+    <div>
+        <Navigation/>
+         Campuses
+    </div>
   )
 }
 
