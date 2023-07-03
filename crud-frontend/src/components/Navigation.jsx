@@ -7,13 +7,13 @@ function Navigation() {
       <nav>
         <ul>
           <li>
-            <Link to="/">Home</Link>
+            <Link to="/">HOME</Link>
           </li>
           <li>
-            <Link to="/allcampuses">Campuses</Link>
+            <Link to="/allcampuses">CAMPUSES</Link>
           </li>
           <li>
-            <Link to="/allstudents">Students</Link>
+            <Link to="/allstudents">STUDENTS</Link>
           </li>
         </ul>
       </nav>
