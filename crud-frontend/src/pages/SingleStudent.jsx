@@ -1,13 +1,14 @@
 import React from 'react'
 import Navigation from '../components/Navigation'
 
-function Students() {
+
+function SingleStudent() {
   return (
     <div>
       <Navigation/>
-      Students
+      SingleStudent
     </div>
   )
 }
 
-export default Students
+export default SingleStudent

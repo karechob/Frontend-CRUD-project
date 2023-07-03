@@ -1,24 +1,28 @@
-import logo from './logo.svg';
 import './App.css';
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import Home from '../pages/Home';
+import Campuses from '../pages/Campuses';
+import Students from '../pages/Students';
+import SingleCampus from '../pages/SingleCampus';
+import SingleStudent from '../pages/SingleStudent';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      {/* <div className='App'>
+        <Home />
+      </div> */}
+      <Routes>
+        <Route path='/' element={<Home />} />
+        <Route path='/allstudents' element={<Students />} />
+        <Route path='/allcampuses' element={<Campuses />} />
+        <Route path='/campus' element={<SingleCampus />} />
+        <Route path='/student' element={<SingleStudent />} />
+      </Routes>
+      <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+      </style>
+    </Router>
   );
 }
 
