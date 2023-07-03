@@ -25,4 +25,4 @@ function Campuses() {
   )
 }
 
-export default Campuses
+export default Campuses;
