@@ -5,7 +5,7 @@ import ListingStudents from "../components/ListingStudents";
 import { fetchAllStudentsThunk } from '../redux/students/students.actions';
 
 function Students() {
-  const allStudents = useSelector((state) => state.student.allStudents);
+  const allStudents = useSelector((state) => state.students.allStudents);
   const dispatch = useDispatch();
 
   function fetchAllStudents() {
