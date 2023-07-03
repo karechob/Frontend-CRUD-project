@@ -6,6 +6,7 @@ import { fetchAllStudentsThunk } from '../redux/students/students.actions';
 
 function Students() {
   const allStudents = useSelector((state) => state.students.allStudents);
+  console.log(" THIS IS ALL STUDENTS ->  ",allStudents);
   const dispatch = useDispatch();
 
   function fetchAllStudents() {

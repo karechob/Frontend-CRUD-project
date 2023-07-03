@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import ListingCampuses from '../components/ListingCampuses';
 import { fetchAllCampusesThunk } from '../redux/campuses/campuses.actions';
 
+
 function Campuses() {
   const allCampuses = useSelector((state) => state.campuses.allCampuses);
   const dispatch = useDispatch();
