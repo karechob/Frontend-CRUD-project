@@ -1,5 +1,6 @@
 import React from 'react'
 import Navigation from '../components/Navigation'
+import ListingStudents from "../components/ListingStudents";
 
 function Students() {
   const allStudents = useSelector((state) => state.students.allStudents);
@@ -11,7 +12,7 @@ function Students() {
   }
 
   useEffect(() => {
-    console.log('FETCH ALL SHOES FIRING IN USEEFFECT');
+    console.log('FETCH ALL STUDENTS FIRING IN USEEFFECT');
     fetchAllStudents();
   }, []);
 
@@ -20,7 +21,7 @@ function Students() {
       <Navigation/>
       Students
       <h1>Students Page</h1>
-      <ListItems list={allStudents} />
+      <ListingStudents list={allStudents} />
     </div>
   )
 }

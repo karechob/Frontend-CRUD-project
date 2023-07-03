@@ -1,5 +1,6 @@
 import React from 'react'
 import Navigation from '../components/Navigation'
+import ListingCampuses from '../components/ListingCampuses';
 
 function Campuses() {
   const allCampuses = useSelector((state) => state.shoes.allShoes);
@@ -11,7 +12,7 @@ function Campuses() {
   }
 
   useEffect(() => {
-    console.log('FETCH ALL SHOES FIRING IN USEEFFECT');
+    console.log('FETCH ALL CAMPUSES FIRING IN USEEFFECT');
     fetchAllCampuses();
   }, []);
 
@@ -20,7 +21,7 @@ function Campuses() {
         <Navigation/>
          Campuses
          <h1>Shoes Page</h1>
-        <ListItems list={allCampuses} />
+        <ListingCampuses list={allCampuses} />
     </div>
   )
 }
