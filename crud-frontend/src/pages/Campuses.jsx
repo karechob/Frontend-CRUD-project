@@ -1,6 +1,7 @@
-import React from 'react'
+import React, {useSelector, useDispatch}  from 'react'
 import Navigation from '../components/Navigation'
 import ListingCampuses from '../components/ListingCampuses';
+
 
 function Campuses() {
   const allCampuses = useSelector((state) => state.campus.allcampus);
