@@ -24,7 +24,16 @@ function Students() {
       <Navigation/>
       Students
       <h1>Students Page</h1>
-      <ListingStudents list={allStudents} />
+      {/* <ListingStudents list={allStudents} /> */}
+      {allStudents.map((student) => (
+        <div key={student.id}>
+          <h2>{student.name}</h2>
+          <img src={student.image} alt={student.name} />
+          <p>Address: {student.address}</p>
+          <p>Description: {student.description}</p>
+          <Link to={`/students/${student.id}`}>View Student</Link>
+        </div>
+      ))}
     </div>
   )
 }
