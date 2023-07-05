@@ -5,9 +5,13 @@ export default function ListingCampuses(props) {
   return props.list ? (
     props.list.map((item) => {
       return (
-        <div className="container-campus" key={item.id}>
-          <img src={item.imageUrl} alt={item.name}/>
-          <h1>{item.name}</h1>
+        <div className="campus-grid">
+          <div className="container-campus" key={item.id}>
+            <div className="campus-pic">
+            <img src={item.imageUrl} alt={item.name} />
+            </div>
+            <h1>{item.name}</h1>
+          </div>
         </div>
       );
     })
