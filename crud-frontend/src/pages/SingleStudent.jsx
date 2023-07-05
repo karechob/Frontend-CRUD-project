@@ -22,9 +22,11 @@ function SingleStudent() {
 
       {singleStudent ? (
         <div>
-          <h2>{singleStudent.firstName}</h2>
+          <h2>{singleStudent.firstName} {singleStudent.lastName}</h2>
           <img src={singleStudent.imageUrl} alt={singleStudent.firstName} />
           <div>
+            <p>Gpa: {singleStudent.gpa}</p>
+            <p>Email: {singleStudent.email}</p>
             <h2>Currently Attending</h2>
             <p>{singleStudent.campus?.name}</p>
           </div>
