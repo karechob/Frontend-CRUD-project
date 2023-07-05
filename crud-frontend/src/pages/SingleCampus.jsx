@@ -2,11 +2,13 @@ import React, { useEffect } from 'react';
 import Navigation from '../components/Navigation';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchSingleCampusThunk } from '../redux/campuses/campuses.actions';
+import { useParams } from 'react-router-dom';
 
 
 function Campuses() {
   const singleCampus = useSelector((state) => state.campuses.singleCampus);
   const dispatch = useDispatch();
+  const {campusId} = useParams();
 
   useEffect(() => {
     console.log('RUNNING DISPATCH FROM FETCHALLCAMPUSES');
