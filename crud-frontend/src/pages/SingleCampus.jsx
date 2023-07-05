@@ -1,13 +1,37 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Navigation from '../components/Navigation';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchSingleCampusThunk } from '../redux/campuses/campuses.actions';
 
-function SingleCampus() {
+
+function Campuses() {
+  const singleCampus = useSelector((state) => state.campuses.singleCampus);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    console.log('RUNNING DISPATCH FROM FETCHALLCAMPUSES');
+    dispatch(fetchSingleCampusThunk(campusId));
+  }, [dispatch, campusId]);
+
   return (
     <div>
-      <Navigation/>
-      SingleCampus
-      </div>
-  )
+      <Navigation />
+      <h1>Campuses Page</h1>
+
+      {singleCampus ? (
+        <div>
+          <h2>{singleCampus.name}</h2>
+          <img src={singleCampus.image} alt={singleCampus.name} />
+          <p>Address: {singleCampus.address}</p>
+          <p>Description: {singleCampus.description}</p>
+     
+        </div>
+      ) : (
+        <p>Loading campus information...</p>
+      )}
+    
+    </div>
+  );
 }
 
-export default SingleCampus;
+export default Campuses;
