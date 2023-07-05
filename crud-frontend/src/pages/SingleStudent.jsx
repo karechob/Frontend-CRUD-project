@@ -18,12 +18,16 @@ function SingleStudent() {
   return (
     <div>
       <Navigation />
-      <h1>Single Student</h1>
+      <h1>Student</h1>
 
       {singleStudent ? (
         <div>
           <h2>{singleStudent.firstName}</h2>
           <img src={singleStudent.imageUrl} alt={singleStudent.firstName} />
+          <div>
+            <h2>Currently Attending</h2>
+            <p>{singleStudent.campus.name}</p>
+          </div>
         </div>
       ) : (
         <p>Loading student information...</p>
