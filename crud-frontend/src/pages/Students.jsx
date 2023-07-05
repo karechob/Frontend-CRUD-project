@@ -20,6 +20,11 @@ function Students() {
     fetchAllStudents();
   }, []);
 
+  //ADD STUDENT
+    //ON DIFFERENT VIEW
+
+  //DELETE STUDENT
+
   return (
     <div>
       <Navigation/>

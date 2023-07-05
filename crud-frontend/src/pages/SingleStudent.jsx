@@ -32,7 +32,7 @@ function SingleStudent() {
       ) : (
         <p>Loading student information...</p>
       )}
-    
+    {/* <button onClick={handleStudentEdit}>Edit Student</button> */}
     </div>
   );
 }

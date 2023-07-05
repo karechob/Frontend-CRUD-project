@@ -13,10 +13,18 @@ function Campuses() {
     return dispatch(fetchAllCampusesThunk());
   }
 
+  
+
   useEffect(() => {
     console.log("FETCH ALL CAMPUSES FIRING IN USEEFFECT");
     fetchAllCampuses();
   }, []);
+
+
+  //DELETE CAMPUS
+
+  //ADD CAMPUS
+    //OWN VIEW
 
   return (
     <div>
