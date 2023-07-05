@@ -5,13 +5,13 @@ import { fetchSingleCampusThunk } from '../redux/campuses/campuses.actions';
 import { useParams } from 'react-router-dom';
 
 
-function Campuses() {
+function SingleCampus() {
   const singleCampus = useSelector((state) => state.campuses.singleCampus);
   const dispatch = useDispatch();
   const {campusId} = useParams();
 
   useEffect(() => {
-    console.log('RUNNING DISPATCH FROM FETCHALLCAMPUSES');
+    console.log('RUNNING DISPATCH FROM SINGLECAMPUS');
     dispatch(fetchSingleCampusThunk(campusId));
   }, [dispatch, campusId]);
 
@@ -36,4 +36,4 @@ function Campuses() {
   );
 }
 
-export default Campuses;
+export default SingleCampus;
