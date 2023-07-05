@@ -22,3 +22,25 @@ export const fetchAllCampusesThunk = () => {
     }
   };
 };
+
+//fetching a single campus
+export const fetchSingleCampus = (payload) => {
+  console.log("FETCH SINGLE CAMPUS ACTION");
+  return {
+    type: CampusesActionType.FETCH_SINGLE_CAMPUS,
+    payload: payload,
+  };
+};
+
+export const fetchSingleCampusThunk = (id) => {
+  return async (dispatch) => {
+    try {
+      console.log("FETCHSINGLECAMPUSTHUNK IS FIRING");
+      const response = await axios.get("http://localhost:8080/api/campus/${id}");
+      console.log("FETCHSINGLECAMPUSTHUNK COMPLETED")
+      dispatch(fetchSingleCampus(response.data));
+    } catch (error) {
+      console.error(error);
+    }
+  };
+};
