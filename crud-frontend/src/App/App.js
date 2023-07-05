@@ -14,8 +14,8 @@ function App() {
       </div> */}
       <Routes>
         <Route path='/home' element={<Home />} />
-        <Route exact path='/allstudents' element={<Students />} />
-        <Route exact path='/allcampuses' element={<Campuses />} />
+        <Route exact path='/students' element={<Students />} />
+        <Route exact path='/campuses' element={<Campuses />} />
         <Route path="/campuses/:campusId" Component={SingleCampus} />
         <Route path="/student/:studentId" Component={SingleStudent} />
       </Routes>
