@@ -17,10 +17,10 @@ function Navigation() {
             <Link to="/home">HOME</Link>
           </li>
           <li>
-            <Link to="/allcampuses">CAMPUSES</Link>
+            <Link to="/campuses">CAMPUSES</Link>
           </li>
           <li>
-            <Link to="/allstudents">STUDENTS</Link>
+            <Link to="/students">STUDENTS</Link>
           </li>
         </ul>
       </nav>
