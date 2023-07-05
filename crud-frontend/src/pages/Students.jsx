@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import Navigation from '../components/Navigation';
 import { useDispatch, useSelector } from "react-redux";
 import ListingStudents from "../components/ListingStudents";
-import { Link } from "react-router-dom";
 import { fetchAllStudentsThunk } from '../redux/students/students.actions';
 
 function Students() {
