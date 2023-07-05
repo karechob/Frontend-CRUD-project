@@ -24,6 +24,10 @@ function SingleStudent() {
         <div>
           <h2>{singleStudent.firstName}</h2>
           <img src={singleStudent.imageUrl} alt={singleStudent.firstName} />
+          <div>
+            <h2>Currently Attending</h2>
+            <p>{singleStudent.campus.name}</p>
+          </div>
         </div>
       ) : (
         <p>Loading student information...</p>

@@ -11,6 +11,8 @@ const studentReducer = (state = INITIAL_STUDENTS_STATE, {type, payload} ) => {
         case StudentsActionType.FETCH_ALL_STUDENTS:
         return {...state, allStudents: payload};
         case StudentsActionType.FETCH_SINGLE_STUDENT:
+            console.log("this is the payload for single students")
+            console.log(payload)
         return {...state, singleStudent: payload};
         default:
             return state;
