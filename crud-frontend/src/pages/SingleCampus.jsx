@@ -23,11 +23,18 @@ function SingleCampus() {
 
       {singleCampus ? (
         <div>
+        <div>
           <h2>{singleCampus.name}</h2>
           <img src={singleCampus.image} alt={singleCampus.name} />
           <p>Address: {singleCampus.address}</p>
           <p>Description: {singleCampus.description}</p>
      
+        </div>
+
+        <div>
+          <h1>Enrolled Students</h1>
+        </div>
+        
         </div>
       ) : (
         <p>Loading campus information...</p>
