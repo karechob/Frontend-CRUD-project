@@ -22,3 +22,25 @@ export const fetchAllStudentsThunk = () => {
     }
   };
 };
+
+//fetching a single students
+export const fetchSingleStudent = (payload) => {
+  console.log("FETCH SINGLE STUDENT ACTION");
+  return {
+    type: StudentsActionType.FETCH_SINGLE_STUDENT,
+    payload: payload,
+  };
+};
+
+export const fetchSingleStudentThunk = (id) => {
+  return async (dispatch) => {
+    try {
+      console.log("FETCHSINGLESTUDENTTHUNK IS FIRING");
+      const response = await axios.get("http://localhost:8080/api/student/${id}");
+      console.log("FETCHSINGLESTUDENTTHUNK COMPLETED")
+      dispatch(fetchSingleStudent(response.data));
+    } catch (error) {
+      console.error(error);
+    }
+  };
+};

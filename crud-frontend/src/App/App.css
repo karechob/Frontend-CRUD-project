@@ -143,5 +143,22 @@ h1{
   text-align: center;
 }
 .add-campus {
-
+  text-decoration: none;
+  font-weight: bold;
+  background-color: #eefaf0;
+  border: solid 2px whitesmoke;
+  border-radius: 10px;
+  padding: 8px;
+  padding-left: 35px;
+  padding-right: 35px;
+  color: black;
+  transition: .4s ease-out;
+}
+.add-campus:hover{
+  cursor: pointer;
+  color: white;
+  background-color: black;
+}
+p{
+  color: white;
 }
