@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import Navigation from '../components/Navigation';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchSingleCampusThunk } from '../redux/campuses/campuses.actions';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 
 
 function SingleCampus() {
@@ -15,24 +15,44 @@ function SingleCampus() {
     console.log(campusId)
     dispatch(fetchSingleCampusThunk(campusId));
   }, [dispatch, campusId]);
-
   return (
     <div>
       <Navigation />
       <h1>Campus Page</h1>
-
       {singleCampus ? (
         <div>
           <h2>{singleCampus.name}</h2>
-          <img src={singleCampus.image} alt={singleCampus.name} />
+          <img src={singleCampus.imageUrl} alt={singleCampus.name} />
           <p>Address: {singleCampus.address}</p>
           <p>Description: {singleCampus.description}</p>
-     
+          {singleCampus.students.length > 0 ? (
+            <div>
+              <h3>Enrolled Students:</h3>
+              <ul>
+                {singleCampus.students.map((student) => (
+                  <li key={student.id}>
+                    <Link to={`/student/${student.id}`}>
+                      {student.firstName}
+                    </Link>
+                    {/* <button onClick={() => handleRemoveStudent(student.id)}>
+                      Remove Student
+                    </button> */}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ) : (
+            <p>No students enrolled at this campus.</p>
+          )}
+
+          {/* <button onClick={handleDeleteCampus}>Delete Campus</button>
+          <button onClick={handleCampusEdit}>Edit Campus</button>
+          <button onClick={handleAddStudent}>Add Student</button> */}
         </div>
       ) : (
         <p>Loading campus information...</p>
       )}
-    
+
     </div>
   );
 }
