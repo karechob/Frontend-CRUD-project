@@ -1,8 +1,9 @@
 import React, { useEffect } from 'react';
 import Navigation from '../components/Navigation';
 import { useDispatch, useSelector } from 'react-redux';
-import ListingCampuses from '../components/ListingCampuses';
+// import ListingCampuses from '../components/ListingCampuses';
 import { fetchAllCampusesThunk } from '../redux/campuses/campuses.actions';
+import { Link } from "react-router-dom";
 
 
 function Campuses() {
@@ -25,7 +26,7 @@ function Campuses() {
       <h1 className='campus-page'>Campuses</h1>
       {/* <button className='add-campus'>Add Campus</button>
       <ListingCampuses list={allCampuses} /> */}
-      {campuses.map((campus) => (
+      {allCampuses.map((campus) => (
         <div key={campus.id}>
           <h2>{campus.name}</h2>
           <img src={campus.image} alt={campus.name} />

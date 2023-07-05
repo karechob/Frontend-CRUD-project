@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react';
 import Navigation from '../components/Navigation';
 import { useDispatch, useSelector } from "react-redux";
-import ListingStudents from "../components/ListingStudents";
+// import ListingStudents from "../components/ListingStudents";
+import { Link } from "react-router-dom";
 import { fetchAllStudentsThunk } from '../redux/students/students.actions';
 
 function Students() {
@@ -27,11 +28,10 @@ function Students() {
       {/* <ListingStudents list={allStudents} /> */}
       {allStudents.map((student) => (
         <div key={student.id}>
-          <h2>{student.name}</h2>
-          <img src={student.image} alt={student.name} />
+          <h2>{student.firstName}{student.lastName}</h2>
           <p>Address: {student.address}</p>
           <p>Description: {student.description}</p>
-          <Link to={`/students/${student.id}`}>View Student</Link>
+          <Link to={`/student/${student.id}`}>View Student</Link>
         </div>
       ))}
     </div>
