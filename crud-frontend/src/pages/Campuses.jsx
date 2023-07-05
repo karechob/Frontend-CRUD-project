@@ -22,7 +22,8 @@ function Campuses() {
   return (
     <div>
       <Navigation />
-      <h1>Campuses Page</h1>
+      <h1 className='campus-page'>Campuses Page</h1>
+      <button className='add-campus'>Add Campus</button>
       <ListingCampuses list={allCampuses} />
     </div>
   );
