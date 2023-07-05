@@ -36,7 +36,7 @@ export const fetchSingleStudentThunk = (id) => {
   return async (dispatch) => {
     try {
       console.log("FETCHSINGLESTUDENTTHUNK IS FIRING");
-      const response = await axios.get("http://localhost:8080/api/student/${id}");
+      const response = await axios.get(`http://localhost:8080/api/student/${id}`); 
       console.log("FETCHSINGLESTUDENTTHUNK COMPLETED")
       dispatch(fetchSingleStudent(response.data));
     } catch (error) {

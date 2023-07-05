@@ -12,6 +12,7 @@ function SingleCampus() {
 
   useEffect(() => {
     console.log('RUNNING DISPATCH FROM SINGLECAMPUS');
+    console.log(campusId)
     dispatch(fetchSingleCampusThunk(campusId));
   }, [dispatch, campusId]);
 

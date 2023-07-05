@@ -36,7 +36,8 @@ export const fetchSingleCampusThunk = (id) => {
   return async (dispatch) => {
     try {
       console.log("FETCHSINGLECAMPUSTHUNK IS FIRING");
-      const response = await axios.get("http://localhost:8080/api/campus/${id}");
+      console.log(id)
+      const response = await axios.get(`http://localhost:8080/api/campus/${id}`);
       console.log("FETCHSINGLECAMPUSTHUNK COMPLETED")
       dispatch(fetchSingleCampus(response.data));
     } catch (error) {

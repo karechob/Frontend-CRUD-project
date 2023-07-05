@@ -2,7 +2,7 @@ import CampusesActionType from "./campuses.types";
 
 export const INITIAL_CAMPUS_STATE = {
     allCampuses: [],
-    singleCampus: null,
+    singleCampus: {},
 }
 
 const campusReducer = (state = INITIAL_CAMPUS_STATE, { type, payload }) => {
