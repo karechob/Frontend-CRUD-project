@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import Navigation from "../components/Navigation";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchAllCampusesThunk } from "../redux/campuses/campuses.actions";
+import ListingCampuses from "../components/ListingCampuses";
 import { Link } from "react-router-dom";
 
 function Campuses() {
@@ -12,8 +13,6 @@ function Campuses() {
     console.log("RUNNING DISPATCH FROM FETCHALLCAMPUSES");
     return dispatch(fetchAllCampusesThunk());
   }
-
-  
 
   useEffect(() => {
     console.log("FETCH ALL CAMPUSES FIRING IN USEEFFECT");
