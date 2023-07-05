@@ -36,11 +36,31 @@ export const fetchSingleStudentThunk = (id) => {
   return async (dispatch) => {
     try {
       console.log("FETCHSINGLESTUDENTTHUNK IS FIRING");
-      const response = await axios.get(`http://localhost:8080/api/student/${id}`); 
-      console.log("FETCHSINGLESTUDENTTHUNK COMPLETED")
+      const response = await axios.get(`http://localhost:8080/api/student/${id}`);
+      console.log("FETCSINGLESTUDENTTHUNK COMPLETED")
       dispatch(fetchSingleStudent(response.data));
     } catch (error) {
       console.error(error);
+    }
+  };
+};
+
+export const deleteStudent = (studentId) => {
+  console.log("FETCHDELETESTUDENT ACTION");
+  return {
+    type: StudentsActionType.DELETE_STUDENT,
+    payload: studentId,
+  };
+};
+
+export const deleteStudentThunk = (studentId) => {
+  return async (dispatch) => {
+    try {
+      console.log("FETCHDELETESTUDENTTHUNK IS FIRING");
+      await axios.delete(`http://localhost:8080/api/student/${studentId}`);
+      console.log("FETCHDELETESTUDENTTHUNK COMPLETED")
+      dispatch(deleteStudent(studentId));
+    } catch (error) {
     }
   };
 };
