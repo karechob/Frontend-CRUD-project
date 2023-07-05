@@ -2,7 +2,7 @@ import StudentsActionType from "./students.types";
 
 export const INITIAL_STUDENTS_STATE = {
     allStudents: [],
-    singleStudent: null,
+    singleStudent: {},
 }
 
 const studentReducer = (state = INITIAL_STUDENTS_STATE, {type, payload} ) => {

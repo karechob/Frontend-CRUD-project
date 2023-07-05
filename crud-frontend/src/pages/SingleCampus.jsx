@@ -18,7 +18,7 @@ function SingleCampus() {
   return (
     <div>
       <Navigation />
-      <h1>Campuses Page</h1>
+      <h1>Campus Page</h1>
 
       {singleCampus ? (
         <div>
