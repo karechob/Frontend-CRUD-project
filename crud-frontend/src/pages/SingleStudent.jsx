@@ -18,7 +18,7 @@ function SingleStudent() {
   return (
     <div>
       <Navigation />
-      <h1>Single Student</h1>
+      <h1>Student</h1>
 
       {singleStudent ? (
         <div>
