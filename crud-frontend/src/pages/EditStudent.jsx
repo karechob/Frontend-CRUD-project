@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams, useNavigate, Link } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { updateStudentThunk } from '../redux/students/students.actions';
 import { fetchAllCampusesThunk } from '../redux/campuses/campuses.actions';
 
@@ -20,10 +20,6 @@ function EditStudent() {
   });
   const [errors, setErrors] = useState({});
 
-  function fetchAllCampuses() {
-    console.log("RUNNING DISPATCH FROM FETCHALLCAMPUSES");
-    return dispatch(fetchAllCampusesThunk());
-  }
   useEffect(() => {
     console.log("FETCH ALL CAMPUSES FIRING IN USEEFFECT");
     dispatch(fetchAllCampusesThunk())
