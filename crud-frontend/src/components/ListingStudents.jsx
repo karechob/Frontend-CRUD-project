@@ -14,12 +14,14 @@ export default function ListingStudents(props) {
             <h1>{item.lastName}, {item.firstName}</h1>
             <p>Currently attending {item.campus}</p>
             <Link to={`/student/${item.id}`}>View Student</Link>
+            <button onClick={() => props.handleDeleteStudent(item.id)}>X</button>
           </div>
         </div>
       );
     })
   ) : (
-    <h1>Loading...</h1>
+    <h1>There are no students registered</h1>
+    
   );
 }
 
@@ -33,3 +35,18 @@ export default function ListingStudents(props) {
 //     <Link to={`/student/${student.id}`}>View Student</Link>
 //   </div>
 // ))}
+
+// return (
+//   <div>
+//     <Navigation />
+//     <h1>Students Page</h1>
+//     {allStudents.map((student) => (
+//       <div key={student.id}>
+//         <h2>{student.firstName} {student.lastName}</h2>
+//         <img src={student.imageUrl} alt={`${student.firstName} ${student.lastName}`} />
+//         <Link to={`/student/${student.id}`}>View Student</Link>
+//         <button onClick={() => handleDeleteStudent(student.id)}>X</button>
+//       </div>
+//     ))}
+//   </div>
+// );
