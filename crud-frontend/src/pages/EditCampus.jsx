@@ -56,6 +56,7 @@ function EditCampus() {
     if (validateForm()) {
       const updatedCampus = {
         id: campusId,
+        name: formData.name,
         address: formData.address,
         campusId: formData.campusId,
       };
