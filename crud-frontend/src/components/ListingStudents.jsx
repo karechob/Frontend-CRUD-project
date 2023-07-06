@@ -11,9 +11,10 @@ export default function ListingStudents(props) {
             <div className="campus-pic">
             <img src={item.imageUrl} alt={item.firstName}/>
             </div>
-            <h1>{item.lastName}, {item.firstName}</h1>
+            <Link to={`/student/${item.id}`}>
+            <h1>{item.lastName}, {item.firstName}</h1> 
+            </Link> 
             <p>Currently attending {item.campus}</p>
-            <Link to={`/student/${item.id}`}>View Student</Link>
             <button onClick={() => props.handleDeleteStudent(item.id)}>X</button>
           </div>
         </div>
