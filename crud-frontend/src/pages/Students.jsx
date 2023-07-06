@@ -34,7 +34,7 @@ function Students() {
     <div>
       <Navigation />
       <h1 className='student-title'>Students</h1>
-      <button>ADD STUDENT</button>
+      <button className='add-btn'>ADD STUDENT</button>
       <ListingStudents list={allStudents} handleDeleteStudent={handleDeleteStudent}/>
     </div>
   );

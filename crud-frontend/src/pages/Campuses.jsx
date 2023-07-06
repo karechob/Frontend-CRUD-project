@@ -1,12 +1,15 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from 'react';
 import Navigation from "../components/Navigation";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchAllCampusesThunk } from "../redux/campuses/campuses.actions";
 import ListingCampuses from "../components/ListingCampuses";
+import { deleteCampusThunk } from "../redux/campuses/campuses.actions";
+
 
 function Campuses() {
   const allCampuses = useSelector((state) => state.campuses.allCampuses);
   const dispatch = useDispatch();
+  const [rerender, setRerender] = useState(false);
 
   function fetchAllCampuses() {
     console.log("RUNNING DISPATCH FROM FETCHALLCAMPUSES");
@@ -19,6 +22,11 @@ function Campuses() {
   }, []);
 
 
+  const handleRemoveCampus = (campusId) => {
+    dispatch(deleteCampusThunk(campusId));
+    setRerender(!rerender);
+  };
+
   //DELETE CAMPUS
 
   //ADD CAMPUS
@@ -28,7 +36,8 @@ function Campuses() {
     <div>
       <Navigation />
       <h1 className="campus-page">Campuses</h1>
-      <ListingCampuses list={allCampuses}/>
+      <button className='add-btn'>ADD CAMPUS</button>
+      <ListingCampuses list={allCampuses} handleRemoveCampus={handleRemoveCampus}/>
     </div>
   );
 }
