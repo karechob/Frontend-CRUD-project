@@ -64,3 +64,21 @@ export const deleteStudentThunk = (studentId) => {
     }
   };
 };
+
+export const updateStudent = (payload) => ({
+  type: StudentsActionType.UPDATE_STUDENT,
+  payload: payload,
+});
+
+export const updateStudentThunk = (updatedStudent) => {
+  return async (dispatch) => {
+    try {
+      console.log('UPDATE STUDENT THUNK IS FIRING');
+      const response = await axios.put(`http://localhost:8080/api/student/${updatedStudent.id}`, updatedStudent);
+      console.log('UPDATE STUDENT THUNK COMPLETED');
+      dispatch(updateStudent(response.data));
+    } catch (error) {
+      console.error(error);
+    }
+  };
+};
