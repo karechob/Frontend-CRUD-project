@@ -6,8 +6,8 @@ import { fetchAllCampusesThunk } from '../redux/campuses/campuses.actions';
 
 function EditStudent() {
   const { studentId } = useParams();
-  const navigate = useNavigate();
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const singleStudent = useSelector((state) => state.students.singleStudent);
   const campuses = useSelector((state) => state.campuses.allCampuses);
 
@@ -20,10 +20,6 @@ function EditStudent() {
   });
   const [errors, setErrors] = useState({});
 
-  function fetchAllCampuses() {
-    console.log("RUNNING DISPATCH FROM FETCHALLCAMPUSES");
-    return dispatch(fetchAllCampusesThunk());
-  }
   useEffect(() => {
     console.log("FETCH ALL CAMPUSES FIRING IN USEEFFECT");
     dispatch(fetchAllCampusesThunk())
@@ -77,11 +73,17 @@ function EditStudent() {
         email: formData.email,
         campusId: formData.campusId,
       };
-      {console.log("This is updated campus: " + updatedStudent.campusId)}
-      dispatch(updateStudentThunk(updatedStudent));
-      navigate(`/student/${studentId}`);
+      dispatch(updateStudentThunk(updatedStudent))
+        .then(() => {
+          navigate(`/student/${studentId}`);
+        })
+        .catch((error) => {
+          // Handle error, if any
+          console.log(error);
+        });
     }
   };
+  
 
   return (
     <div>
@@ -141,8 +143,7 @@ function EditStudent() {
               </option>
             ))}
           </select>
-        </div>
-        <button type="submit">Save</button>
+        </div><button type="submit" >Save</button>
       </form>
     </div>
   );
