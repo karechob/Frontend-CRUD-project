@@ -2,7 +2,6 @@ import React, { useState} from "react";
 import { addStudentThunk } from "../redux/students/students.actions";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { addStudentThunk } from "../redux/students/students.actions";
 
 function AddStudent() {
     const dispatch = useDispatch()
@@ -13,7 +12,13 @@ function AddStudent() {
         navigate('/students')
     }
 
-
+    const [newStudent, setNewStudent] = useState({
+        firstName: "",
+        lastName: "",
+        email: "",
+        imageUrl: "https://freesvg.org/img/abstract-user-flat-4.png",
+        gpa: "",
+    })
 
 
    
