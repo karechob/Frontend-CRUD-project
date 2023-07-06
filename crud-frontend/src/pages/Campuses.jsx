@@ -28,10 +28,6 @@ function Campuses() {
     setRerender(!rerender);
   };
 
-  //DELETE CAMPUS
-
-  //ADD CAMPUS
-    //OWN VIEW
 
   return (
     <div>
