@@ -16,10 +16,12 @@ function AddStudent() {
     gpa: "",
   });
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async(event) => {
     event.preventDefault();
-    dispatch(addStudentThunk(newStudent));
-    navigate("/students");
+    const studentdata = await dispatch(addStudentThunk(newStudent));
+    console.log("this is student data")
+    console.log(studentdata)
+    navigate(`/student/${studentdata.id}`);
   };
 
 
@@ -66,6 +68,9 @@ function AddStudent() {
           <label className="from-label">GPA:</label>
           <input
             type="number"
+            min={0.0}
+            max={4.0}
+            step={0.1}
             name="gpa"
             value={newStudent.gpa}
             onChange={handleNewStudentInput}

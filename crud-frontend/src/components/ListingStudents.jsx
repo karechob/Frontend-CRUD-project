@@ -21,7 +21,6 @@ export default function ListingStudents(props) {
     })
   ) : (
     <h1>There are no students registered</h1>
-    
   );
 }
 
