@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Navigation from '../components/Navigation';
 import { useDispatch, useSelector } from "react-redux";
 import { fetchAllStudentsThunk } from '../redux/students/students.actions';
+import { deleteStudentThunk } from '../redux/students/students.actions';
 
 function Students() {
   const allStudents = useSelector((state) => state.students.allStudents);
@@ -18,11 +19,23 @@ function Students() {
     fetchAllStudents();
   }, [dispatch, rerender]);
 
+  const handleDeleteStudent = (studentId) => {
+    dispatch(deleteStudentThunk(studentId));
+    setRerender(!rerender);
+  };
+
+  // const handleAddStudent = () => {
+
+  // }
+
+  //ADD STUDENT
+    //ON DIFFERENT VIEW
+
   return (
     <div>
       <Navigation />
       <h1>Students Page</h1>
-      <ListingStudents list={allStudents}/>
+      <ListingStudents list={allStudents} handleDeleteStudent={handleDeleteStudent}/>
     </div>
   );
 }
