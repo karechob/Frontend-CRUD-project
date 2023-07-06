@@ -45,6 +45,7 @@ export const fetchSingleStudentThunk = (id) => {
   };
 };
 
+//delete student
 export const deleteStudent = (studentId) => {
   console.log("FETCHDELETESTUDENT ACTION");
   return {
@@ -61,6 +62,27 @@ export const deleteStudentThunk = (studentId) => {
       console.log("FETCHDELETESTUDENTTHUNK COMPLETED")
       dispatch(deleteStudent(studentId));
     } catch (error) {
+    }
+  };
+};
+
+//add student
+export const addStudent = (student) => {
+  console.log("FETCHADDSTUDENT ACTION");
+  return {
+    type: StudentsActionType.ADD_STUDENT,
+    payload: student,
+  };
+};
+
+export const addStudentThunk = (studentData) => {
+  return async (dispatch) => {
+    try {
+      const response = await axios.post('http://localhost:8080/api/student/', studentData);
+      const newStudent = response.data;
+      dispatch(addStudent(newStudent));
+    } catch (error) {
+      console.error(error)
     }
   };
 };
