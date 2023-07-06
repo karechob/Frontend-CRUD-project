@@ -23,7 +23,7 @@ function App() {
         <Route path="/student/:studentId" Component={SingleStudent} />
         <Route path='/student' element={<AddStudent />} />
         <Route path='/campus' element={<AddCampus />} />
-        <Route path="/students/:studentId/edit" element={<EditStudent />} />
+        <Route path="/student/:studentId" element={<EditStudent />} />
       </Routes>
       <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
