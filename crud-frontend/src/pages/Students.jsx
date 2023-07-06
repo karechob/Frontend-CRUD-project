@@ -1,13 +1,14 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import Navigation from '../components/Navigation';
 import { useDispatch, useSelector } from "react-redux";
 import ListingStudents from "../components/ListingStudents";
 import { fetchAllStudentsThunk } from '../redux/students/students.actions';
 
+
 function Students() {
   const allStudents = useSelector((state) => state.students.allStudents);
-  console.log(" THIS IS ALL STUDENTS ->  ",allStudents);
   const dispatch = useDispatch();
+  const [rerender, setRerender] = useState(false);
 
   function fetchAllStudents() {
     console.log('RUNNING DISPATCH FROM FETCHALLSTUDENTS');
@@ -17,7 +18,12 @@ function Students() {
   useEffect(() => {
     console.log('FETCH ALL STUDENTS FIRING IN USEEFFECT');
     fetchAllStudents();
-  }, []);
+  }, [dispatch, rerender]);
+
+  const handleDeleteStudent = (studentId) => {
+    dispatch(deleteStudentThunk(studentId));
+    setRerender(!rerender);
+  };
 
   //ADD STUDENT
     //ON DIFFERENT VIEW
@@ -26,12 +32,11 @@ function Students() {
 
   return (
     <div>
-      <Navigation/>
-      Students
+      <Navigation />
       <h1>Students Page</h1>
       <ListingStudents list={allStudents}/>
     </div>
-  )
+  );
 }
 
 export default Students;
