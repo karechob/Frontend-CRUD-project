@@ -53,7 +53,7 @@ function SingleCampus() {
           </div>
         </div>
       ) : (
-        <p>Loading campus information...</p>
+        <p>No campus information currently</p>
       )}
     </div>
   );

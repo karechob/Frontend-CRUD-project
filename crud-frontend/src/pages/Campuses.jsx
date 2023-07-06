@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchAllCampusesThunk } from "../redux/campuses/campuses.actions";
 import ListingCampuses from "../components/ListingCampuses";
 import { deleteCampusThunk } from "../redux/campuses/campuses.actions";
+import { Link } from 'react-router-dom';
 
 
 function Campuses() {
@@ -27,16 +28,16 @@ function Campuses() {
     setRerender(!rerender);
   };
 
-  //DELETE CAMPUS
-
-  //ADD CAMPUS
-    //OWN VIEW
 
   return (
     <div>
       <Navigation />
       <h1 className="campus-page">Campuses</h1>
-      <button className='add-btn'>ADD CAMPUS</button>
+      <div className='btn-container'>
+      <Link to="/campus">
+        <button className='add-btn'>ADD CAMPUS</button>
+      </Link>
+      </div>
       <ListingCampuses list={allCampuses} handleRemoveCampus={handleRemoveCampus}/>
     </div>
   );
