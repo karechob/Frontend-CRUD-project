@@ -46,3 +46,66 @@ export const fetchSingleCampusThunk = (id) => {
     }
   };
 };
+
+//deleting a campus
+export const deleteCampus = (campusId) => {
+  console.log("DELETECAMPUS ACTION");
+  return {
+    type: CampusesActionType.DELETE_CAMPUS,
+    payload: campusId,
+  };
+};
+
+export const deleteCampusThunk = (campusId) => {
+  return async (dispatch) => {
+    try {
+      console.log("DELETECAMPUSTHUNK IS FIRING");
+      await axios.delete(`http://localhost:8080/api/campus/${campusId}`);
+      console.log("DELETECAMPUSTHUNK COMPLETED")
+      dispatch(deleteCampus(campusId));
+    } catch (error) {
+    }
+  };
+};
+
+//adding a campus
+export const addCampus = (campus) => {
+  console.log("ADDCAMPUS ACTION");
+  return {
+    type: CampusesActionType.ADD_CAMPUS,
+    payload: campus,
+  };
+};
+
+export const addCampusThunk = (campusData) => {
+  return async (dispatch) => {
+    try {
+      console.log('ADD CAMPUS THUNK IS FIRING');
+      const response = await axios.post('http://localhost:8080/api/campus/', campusData);
+      const newCampus = response.data;
+      dispatch(addCampus(newCampus));
+      console.log('ADD CAMPUS THUNK IS COMPLETED');
+    } catch (error) {
+      console.error(error)
+    }
+  }
+}
+
+//updating a campus
+export const updateCampus = (payload) => ({
+  type: CampusesActionType.UPDATE_CAMPUS,
+  payload: payload,
+});
+
+export const updateCampusThunk = (updatedCampus) => {
+  return async (dispatch) => {
+    try {
+      console.log('UPDATE CAMPUS THUNK IS FIRING');
+      const response = await axios.put(`http://localhost:8080/api/campus/${updatedCampus.id}`, updatedCampus);
+      console.log('UPDATE STUDENT THUNK COMPLETED');
+      dispatch(updateCampus(response.data));
+    } catch (error) {
+      console.error(error);
+    }
+  };
+};
