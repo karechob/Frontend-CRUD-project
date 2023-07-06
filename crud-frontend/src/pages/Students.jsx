@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import Navigation from '../components/Navigation';
 import { useDispatch, useSelector } from "react-redux";
-import { fetchAllStudentsThunk, deleteStudentThunk, addStudentThunk } from '../redux/students/students.actions';
+import { fetchAllStudentsThunk, deleteStudentThunk } from '../redux/students/students.actions';
 import ListingStudents from '../components/ListingStudents';
-import AddStudent from './AddStudent';
 import { Link } from 'react-router-dom';
 
 function Students() {
@@ -26,15 +25,13 @@ function Students() {
     setRerender(!rerender);
   };
 
-  const handleAddStudent = () => {
-    dispatch(addStudentThunk());
-  }
-
   return (
     <div>
       <Navigation />
       <h1 className='student-title'>Students</h1>
-      <button className='add-btn'>ADD STUDENT</button>
+      <Link to="/student">
+        <button className='add-btn'>ADD STUDENT</button>
+      </Link>
       <ListingStudents list={allStudents} handleDeleteStudent={handleDeleteStudent}/>
     </div>
   );
