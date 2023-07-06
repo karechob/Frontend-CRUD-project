@@ -2,12 +2,14 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams, useNavigate } from 'react-router-dom';
 import { updateStudentThunk } from '../redux/students/students.actions';
+import { fetchAllCampusesThunk } from '../redux/campuses/campuses.actions';
 
 function EditStudent() {
   const { studentId } = useParams();
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const singleStudent = useSelector((state) => state.students.singleStudent);
+  const campuses = useSelector((state) => state.campuses.allCampuses);
 
   const [formData, setFormData] = useState({
     firstName: '',
@@ -18,17 +20,25 @@ function EditStudent() {
   });
   const [errors, setErrors] = useState({});
 
+  function fetchAllCampuses() {
+    console.log("RUNNING DISPATCH FROM FETCHALLCAMPUSES");
+    return dispatch(fetchAllCampusesThunk());
+  }
   useEffect(() => {
-    if (singleStudent) {
-      setFormData({
-        firstName: singleStudent.firstName,
-        lastName: singleStudent.lastName,
-        gpa: singleStudent.gpa,
-        email: singleStudent.email,
-        campusId: singleStudent.campus?.id || '',
+    console.log("FETCH ALL CAMPUSES FIRING IN USEEFFECT");
+    dispatch(fetchAllCampusesThunk())
+      .then(() => {
+        if (singleStudent) {
+          setFormData({
+            firstName: singleStudent.firstName,
+            lastName: singleStudent.lastName,
+            gpa: singleStudent.gpa,
+            email: singleStudent.email,
+            campusId: singleStudent.campus?.id || '',
+          });
+        }
       });
-    }
-  }, [singleStudent]);
+  }, [singleStudent, dispatch]);
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -67,6 +77,7 @@ function EditStudent() {
         email: formData.email,
         campusId: formData.campusId,
       };
+      {console.log("This is updated campus: " + updatedStudent.campusId)}
       dispatch(updateStudentThunk(updatedStudent));
       navigate(`/student/${studentId}`);
     }
@@ -118,20 +129,18 @@ function EditStudent() {
         </div>
         <div>
           <label>Enrolled Campus:</label>
-          <input
-            type="numer"
-            name="campusId"
-            value={formData.campusId}
-            onChange={handleInputChange}
-          />
-          {/* <select
+          <select
             name="campusId"
             value={formData.campusId}
             onChange={handleInputChange}
           >
             <option value="">Not Enrolled</option>
-            Render campus options here
-          </select> */}
+            {campuses.map((campus) => (
+              <option key={campus.id} value={campus.id}>
+                {campus.name}
+              </option>
+            ))}
+          </select>
         </div>
         <button type="submit">Save</button>
       </form>
