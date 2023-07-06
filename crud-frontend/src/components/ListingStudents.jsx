@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 export default function ListingStudents(props) {
   console.log("LIST STUDENTS COMPONENT");
-  return props.list ? (
+  return props.list.length > 0 ? (
     props.list.map((item) => {
       return (
         <div className="campus-grid">
@@ -20,7 +20,7 @@ export default function ListingStudents(props) {
       );
     })
   ) : (
-    <h1>There are no students registered</h1>
+    <h1 className="info-message">There are no students registered</h1>
   );
 }
 

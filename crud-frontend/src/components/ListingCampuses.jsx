@@ -3,13 +3,13 @@ import { Link } from "react-router-dom";
 
 export default function ListingCampuses(props) {
   console.log("LIST CAMPUSES COMPONENT");
-  
+
   const handleRemoveCampus = (campusId) => {
     props.handleRemoveCampus(campusId);
     window.location.reload();
   };
 
-  return props.list ? (
+  return props.list.length > 0 ? (
     props.list.map((item) => {
       return (
         <div className="campus-grid">
@@ -30,6 +30,6 @@ export default function ListingCampuses(props) {
       );
     })
   ) : (
-    <h1>There are no campuses registered</h1>
+    <h1 className="info-message">There are no campuses registered</h1>
   );
 }
