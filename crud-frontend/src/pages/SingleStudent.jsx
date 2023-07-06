@@ -181,7 +181,7 @@ function SingleStudent() {
               )}
             </div>
           </div>
-          <button onClick={handleDeleteStudent}>Delete Student</button>
+          <button onClick={handleDeleteStudent}>X</button>
         </div>
       ) : (
         <p>Loading student information...</p>

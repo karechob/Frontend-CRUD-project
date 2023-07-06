@@ -40,7 +40,7 @@ function AddStudent() {
           <label className="from-label">First Name:</label>
           <input
             type="text"
-            name="firstname"
+            name="firstName"
             defaultValue={newStudent.firstName}
             onChange={handleNewStudentInput}
             required
@@ -49,7 +49,7 @@ function AddStudent() {
           <label className="from-label">Last Name:</label>
           <input
             type="text"
-            name="lastname"
+            name="lastName"
             defaultValue={newStudent.lastName}
             onChange={handleNewStudentInput}
             required
