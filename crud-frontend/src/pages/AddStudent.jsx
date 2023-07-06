@@ -66,6 +66,9 @@ function AddStudent() {
           <label className="from-label">GPA:</label>
           <input
             type="number"
+            min={0.0}
+            max={4.0}
+            step={0.1}
             name="gpa"
             value={newStudent.gpa}
             onChange={handleNewStudentInput}
