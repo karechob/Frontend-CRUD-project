@@ -5,17 +5,18 @@ import { fetchSingleStudentThunk, deleteStudentThunk, updateStudentThunk } from 
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import EditStudent from './EditStudent';
 
+
 function SingleStudent() {
   const singleStudent = useSelector((state) => state.students.singleStudent);
   const dispatch = useDispatch();
   const { studentId } = useParams();
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
-    firstName: '',
-    lastName: '',
-    gpa: '',
-    email: '',
-    campusId: '',
+    firstName: "",
+    lastName: "",
+    gpa: "",
+    email: "",
+    campusId: "",
   });
   const [errors, setErrors] = useState({});
   const [isEditing, setIsEditing] = useState(false);
@@ -31,7 +32,7 @@ function SingleStudent() {
         lastName: singleStudent.lastName,
         gpa: singleStudent.gpa,
         email: singleStudent.email,
-        campusId: singleStudent.campus?.id || '',
+        campusId: singleStudent.campus?.id || "",
       });
     }
   }, [singleStudent]);
@@ -46,17 +47,17 @@ function SingleStudent() {
 
   const validateForm = () => {
     let formErrors = {};
-    if (formData.firstName.trim() === '') {
-      formErrors.firstName = 'First name is required.';
+    if (formData.firstName.trim() === "") {
+      formErrors.firstName = "First name is required.";
     }
-    if (formData.lastName.trim() === '') {
-      formErrors.lastName = 'Last name is required.';
+    if (formData.lastName.trim() === "") {
+      formErrors.lastName = "Last name is required.";
     }
-    if (formData.gpa.trim() === '') {
-      formErrors.gpa = 'GPA is required.';
+    if (formData.gpa.trim() === "") {
+      formErrors.gpa = "GPA is required.";
     }
-    if (formData.email.trim() === '') {
-      formErrors.email = 'Email is required.';
+    if (formData.email.trim() === "") {
+      formErrors.email = "Email is required.";
     }
     setErrors(formErrors);
     return Object.keys(formErrors).length === 0;
@@ -80,7 +81,7 @@ function SingleStudent() {
 
   const handleDeleteStudent = () => {
     dispatch(deleteStudentThunk(studentId));
-    navigate('/students');
+    navigate("/students");
   };
 
   const handleToggleEdit = () => {
@@ -94,7 +95,9 @@ function SingleStudent() {
 
       {singleStudent ? (
         <div>
-          <h2>{singleStudent.firstName} {singleStudent.lastName}</h2>
+          <h2>
+            {singleStudent.firstName} {singleStudent.lastName}
+          </h2>
           <img src={singleStudent.imageUrl} alt={singleStudent.firstName} />
           <div>
             <p>Gpa: {singleStudent.gpa}</p>
@@ -103,7 +106,9 @@ function SingleStudent() {
               <div>
                 <h2>Currently Attending</h2>
                 <p>{singleStudent.campus.name}</p>
-                <Link to={`/campuses/${singleStudent.campus.id}`}>View Campus</Link>
+                <Link to={`/campuses/${singleStudent.campus.id}`}>
+                  View Campus
+                </Link>
               </div>
             ) : (
               <p>Not enrolled at any campus.</p>
