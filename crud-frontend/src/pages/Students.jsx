@@ -26,9 +26,9 @@ function Students() {
     setRerender(!rerender);
   };
 
-  const handleAddStudent = () => {
-    dispatch(addStudentThunk());
-  }
+  // const handleAddStudent = () => {
+  //   dispatch(addStudentThunk());
+  // }
 
   return (
     <div>

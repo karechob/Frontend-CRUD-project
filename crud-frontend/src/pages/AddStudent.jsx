@@ -2,6 +2,7 @@ import React, { useState} from "react";
 import { addStudentThunk } from "../redux/students/students.actions";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import Navigation from "../components/Navigation";
 
 function AddStudent() {
     const dispatch = useDispatch()
@@ -20,10 +21,17 @@ function AddStudent() {
         gpa: "",
     })
 
-
+    const handleNewStudentInput = (event) => {
+        setNewStudent({
+            ...newStudent,
+            [event.target.name]: event.target.value,
+        })
+    }
    
   return (
-    <div>AddStudent</div>
+    <div>
+        <Navigation/>
+    </div>
   )
 }
 
