@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchAllStudentsThunk, deleteStudentThunk, addStudentThunk } from '../redux/students/students.actions';
 import ListingStudents from '../components/ListingStudents';
 import AddStudent from './AddStudent';
+import { Link } from 'react-router-dom';
 
 function Students() {
   const allStudents = useSelector((state) => state.students.allStudents);
@@ -33,6 +34,7 @@ function Students() {
     <div>
       <Navigation />
       <h1 className='student-title'>Students</h1>
+      <button>ADD STUDENT</button>
       <ListingStudents list={allStudents} handleDeleteStudent={handleDeleteStudent}/>
     </div>
   );
@@ -40,4 +42,3 @@ function Students() {
 
 export default Students;
 
-{/* <button onClick={() => handleAddStudent(.id)} >ADD CAMPUS</button> */}
