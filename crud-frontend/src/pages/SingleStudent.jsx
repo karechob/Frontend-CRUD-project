@@ -1,12 +1,10 @@
-import React, { useEffect, useState } from "react";
-import Navigation from "../components/Navigation";
-import { useDispatch, useSelector } from "react-redux";
-import {
-  fetchSingleStudentThunk,
-  deleteStudentThunk,
-  updateStudentThunk,
-} from "../redux/students/students.actions";
-import { useParams, useNavigate, Link } from "react-router-dom";
+import React, { useEffect, useState } from 'react';
+import Navigation from '../components/Navigation';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchSingleStudentThunk, deleteStudentThunk, updateStudentThunk } from '../redux/students/students.actions';
+import { useParams, useNavigate, Link } from 'react-router-dom';
+import EditStudent from './EditStudent';
+
 
 function SingleStudent() {
   const singleStudent = useSelector((state) => state.students.singleStudent);
@@ -117,63 +115,12 @@ function SingleStudent() {
             )}
             <div>
               {isEditing ? (
-                <div>
-                  <h2>Edit Student</h2>
-                  <form onSubmit={handleSubmit}>
-                    <div>
-                      <label>First Name:</label>
-                      <input
-                        type="text"
-                        name="firstName"
-                        value={formData.firstName}
-                        onChange={handleInputChange}
-                      />
-                      {errors.firstName && <p>{errors.firstName}</p>}
-                    </div>
-                    <div>
-                      <label>Last Name:</label>
-                      <input
-                        type="text"
-                        name="lastName"
-                        value={formData.lastName}
-                        onChange={handleInputChange}
-                      />
-                      {errors.lastName && <p>{errors.lastName}</p>}
-                    </div>
-                    <div>
-                      <label>GPA:</label>
-                      <input
-                        type="text"
-                        name="gpa"
-                        value={formData.gpa}
-                        onChange={handleInputChange}
-                      />
-                      {errors.gpa && <p>{errors.gpa}</p>}
-                    </div>
-                    <div>
-                      <label>Email:</label>
-                      <input
-                        type="email"
-                        name="email"
-                        value={formData.email}
-                        onChange={handleInputChange}
-                      />
-                      {errors.email && <p>{errors.email}</p>}
-                    </div>
-                    <div>
-                      <label>Enrolled Campus:</label>
-                      <select
-                        name="campusId"
-                        value={formData.campusId}
-                        onChange={handleInputChange}
-                      >
-                        <option value="">Not Enrolled</option>
-                        {/* Render campus options here */}
-                      </select>
-                    </div>
-                    <button type="submit">Save</button>
-                  </form>
-                </div>
+                <EditStudent
+                  formData={formData}
+                  errors={errors}
+                  handleInputChange={handleInputChange}
+                  handleSubmit={handleSubmit}
+                />
               ) : (
                 <div>
                   <button onClick={handleToggleEdit}>Edit</button>
