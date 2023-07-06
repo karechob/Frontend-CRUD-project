@@ -85,6 +85,7 @@ export const addCampusThunk = (campusData) => {
       const newCampus = response.data;
       dispatch(addCampus(newCampus));
       console.log('ADD CAMPUS THUNK IS COMPLETED');
+      return response.data
     } catch (error) {
       console.error(error)
     }

@@ -15,10 +15,10 @@ function AddCampus() {
     description: "",
   });
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async(event) => {
     event.preventDefault();
-    dispatch(addCampusThunk(newCampus));
-    navigate("/campuses");
+    const campusData = await dispatch(addCampusThunk(newCampus));
+    navigate(`/campuses/${campusData.id}`);
   };
 
 
