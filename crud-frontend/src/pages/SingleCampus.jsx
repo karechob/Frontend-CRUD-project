@@ -47,9 +47,9 @@ function SingleCampus() {
               <p>No students enrolled at this campus.</p>
             )}
 
-            {/* <button onClick={handleDeleteCampus}>Delete Campus</button>
+            {/*
           <button onClick={handleCampusEdit}>Edit Campus</button>
-          <button onClick={handleAddStudent}>Add Student</button> */}
+          */}
           </div>
         </div>
       ) : (
