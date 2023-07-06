@@ -84,6 +84,7 @@ export const addStudentThunk = (studentData) => {
       const newStudent = response.data;
       dispatch(addStudent(newStudent));
       console.log('ADD STUDENT THUNK IS COMPLETED');
+      return response.data
     } catch (error) {
       console.error(error)
     }
