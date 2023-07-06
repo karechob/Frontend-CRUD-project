@@ -19,7 +19,9 @@ function AddStudent() {
   const handleSubmit = async(event) => {
     event.preventDefault();
     const studentdata = await dispatch(addStudentThunk(newStudent));
-    navigate(`/student/${studentdata.studentId}`);
+    console.log("this is student data")
+    console.log(studentdata)
+    navigate(`/student/${studentdata.id}`);
   };
 
 
