@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export default function ListingStudents(props) {
   console.log("LIST STUDENTS COMPONENT");
@@ -12,6 +13,7 @@ export default function ListingStudents(props) {
             </div>
             <h1>{item.lastName}, {item.firstName}</h1>
             <p>Currently attending {item.campus}</p>
+            <Link to={`/student/${item.id}`}>View Student</Link>
           </div>
         </div>
       );
@@ -20,3 +22,14 @@ export default function ListingStudents(props) {
     <h1>Loading...</h1>
   );
 }
+
+
+// {allStudents.map((student) => (
+//   <div key={student.id}>
+//     <h2>{student.firstName} {student.lastName}</h2>
+//     <img src={student.imageUrl} alt={`${student.firstName} ${student.lastName}`}/>
+//     <p>Address: {student.address}</p>
+//     <p>Description: {student.description}</p>
+//     <Link to={`/student/${student.id}`}>View Student</Link>
+//   </div>
+// ))}
