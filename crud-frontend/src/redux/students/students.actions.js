@@ -74,7 +74,7 @@ export const updateStudentThunk = (updatedStudent) => {
   return async (dispatch) => {
     try {
       console.log('UPDATE STUDENT THUNK IS FIRING');
-      const response = await axios.put(`/api/students/${updatedStudent.id}`, updatedStudent);
+      const response = await axios.put(`http://localhost:8080/api/student/${updatedStudent.id}`, updatedStudent);
       console.log('UPDATE STUDENT THUNK COMPLETED');
       dispatch(updateStudent(response.data));
     } catch (error) {
