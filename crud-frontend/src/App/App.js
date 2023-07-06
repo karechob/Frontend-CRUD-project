@@ -7,6 +7,7 @@ import SingleCampus from '../pages/SingleCampus';
 import SingleStudent from '../pages/SingleStudent';
 import AddCampus from '../pages/AddCampus';
 import AddStudent from '../pages/AddStudent';
+import EditStudent from '../pages/EditStudent';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route path="/student/:studentId" Component={SingleStudent} />
         <Route path='/student' element={<AddStudent />} />
         <Route path='/campus' element={<AddCampus />} />
+        <Route path="/students/:studentId/edit" element={<EditStudent />} />
       </Routes>
       <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');

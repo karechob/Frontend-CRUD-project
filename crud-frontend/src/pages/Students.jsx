@@ -1,9 +1,12 @@
-import React, { useEffect, useState } from 'react';
-import Navigation from '../components/Navigation';
+import React, { useEffect, useState } from "react";
+import Navigation from "../components/Navigation";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchAllStudentsThunk, deleteStudentThunk } from '../redux/students/students.actions';
-import ListingStudents from '../components/ListingStudents';
-import { Link } from 'react-router-dom';
+import {
+  fetchAllStudentsThunk,
+  deleteStudentThunk,
+} from "../redux/students/students.actions";
+import ListingStudents from "../components/ListingStudents";
+import { Link } from "react-router-dom";
 
 function Students() {
   const allStudents = useSelector((state) => state.students.allStudents);
@@ -11,12 +14,12 @@ function Students() {
   const [rerender, setRerender] = useState(false);
 
   function fetchAllStudents() {
-    console.log('RUNNING DISPATCH FROM FETCHALLSTUDENTS');
+    console.log("RUNNING DISPATCH FROM FETCHALLSTUDENTS");
     return dispatch(fetchAllStudentsThunk());
   }
 
   useEffect(() => {
-    console.log('FETCH ALL STUDENTS FIRING IN USEEFFECT');
+    console.log("FETCH ALL STUDENTS FIRING IN USEEFFECT");
     fetchAllStudents();
   }, [dispatch, rerender]);
 
@@ -28,14 +31,18 @@ function Students() {
   return (
     <div>
       <Navigation />
-      <h1 className='student-title'>Students</h1>
-      <Link to="/student">
-        <button className='add-btn'>ADD STUDENT</button>
-      </Link>
-      <ListingStudents list={allStudents} handleDeleteStudent={handleDeleteStudent}/>
+      <h1 className="student-title">Students</h1>
+      <div className="btn-container">
+        <Link to="/student">
+          <button className="add-btn">ADD STUDENT</button>
+        </Link>
+      </div>
+      <ListingStudents
+        list={allStudents}
+        handleDeleteStudent={handleDeleteStudent}
+      />
     </div>
   );
 }
 
 export default Students;
-
