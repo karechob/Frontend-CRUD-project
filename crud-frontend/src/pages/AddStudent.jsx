@@ -16,10 +16,10 @@ function AddStudent() {
     gpa: "",
   });
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async(event) => {
     event.preventDefault();
-    dispatch(addStudentThunk(newStudent));
-    navigate("/students");
+    const studentdata = await dispatch(addStudentThunk(newStudent));
+    navigate(`/student/${studentdata.studentId}`);
   };
 
 
