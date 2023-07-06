@@ -8,6 +8,7 @@ function EditStudent() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const singleStudent = useSelector((state) => state.students.singleStudent);
+  const campuses = useSelector((state) => state.campuses.allCampuses);
 
   const [formData, setFormData] = useState({
     firstName: '',
@@ -118,22 +119,19 @@ function EditStudent() {
         </div>
         <div>
           <label>Enrolled Campus:</label>
-          <input
-            type="numer"
-            name="campusId"
-            value={formData.campusId}
-            onChange={handleInputChange}
-          />
-          {/* <select
+          <select
             name="campusId"
             value={formData.campusId}
             onChange={handleInputChange}
           >
             <option value="">Not Enrolled</option>
-            Render campus options here
-          </select> */}
+            {campuses.map((campus) => (
+              <option key={campus.id} value={campus.id}>
+                {campus.name}
+              </option>
+            ))}
+          </select>
         </div>
-        <button type="submit">Save</button>
       </form>
     </div>
   );
