@@ -5,79 +5,17 @@ import { fetchSingleStudentThunk, deleteStudentThunk, updateStudentThunk } from 
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import EditStudent from './EditStudent';
 
-
 function SingleStudent() {
+  const [forceRerenderKey, setForceRerenderKey] = useState(0);
   const singleStudent = useSelector((state) => state.students.singleStudent);
   const dispatch = useDispatch();
   const { studentId } = useParams();
   const navigate = useNavigate();
-  const [formData, setFormData] = useState({
-    firstName: "",
-    lastName: "",
-    gpa: "",
-    email: "",
-    campusId: "",
-  });
-  const [errors, setErrors] = useState({});
   const [isEditing, setIsEditing] = useState(false);
 
   useEffect(() => {
     dispatch(fetchSingleStudentThunk(studentId));
-  }, [dispatch, studentId]);
-
-  useEffect(() => {
-    if (singleStudent) {
-      setFormData({
-        firstName: singleStudent.firstName,
-        lastName: singleStudent.lastName,
-        gpa: singleStudent.gpa,
-        email: singleStudent.email,
-        campusId: singleStudent.campus?.id || "",
-      });
-    }
-  }, [singleStudent]);
-
-  const handleInputChange = (event) => {
-    const { name, value } = event.target;
-    setFormData((prevFormData) => ({
-      ...prevFormData,
-      [name]: value,
-    }));
-  };
-
-  const validateForm = () => {
-    let formErrors = {};
-    if (formData.firstName.trim() === "") {
-      formErrors.firstName = "First name is required.";
-    }
-    if (formData.lastName.trim() === "") {
-      formErrors.lastName = "Last name is required.";
-    }
-    if (formData.gpa.trim() === "") {
-      formErrors.gpa = "GPA is required.";
-    }
-    if (formData.email.trim() === "") {
-      formErrors.email = "Email is required.";
-    }
-    setErrors(formErrors);
-    return Object.keys(formErrors).length === 0;
-  };
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    if (validateForm()) {
-      const updatedStudent = {
-        id: studentId,
-        firstName: formData.firstName,
-        lastName: formData.lastName,
-        gpa: formData.gpa,
-        email: formData.email,
-        campusId: formData.campusId,
-      };
-      dispatch(updateStudentThunk(updatedStudent));
-      setIsEditing(false);
-    }
-  };
+  }, [dispatch, studentId, forceRerenderKey]);
 
   const handleDeleteStudent = () => {
     dispatch(deleteStudentThunk(studentId));
@@ -89,7 +27,7 @@ function SingleStudent() {
   };
 
   return (
-    <div>
+    <div key={forceRerenderKey}>
       <Navigation />
       <h1>Student</h1>
 
@@ -115,12 +53,7 @@ function SingleStudent() {
             )}
             <div>
               {isEditing ? (
-                <EditStudent
-                  formData={formData}
-                  errors={errors}
-                  handleInputChange={handleInputChange}
-                  handleSubmit={handleSubmit}
-                />
+                <EditStudent />
               ) : (
                 <div>
                   <button onClick={handleToggleEdit}>Edit</button>
