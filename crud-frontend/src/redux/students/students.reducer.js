@@ -19,9 +19,11 @@ const studentReducer = (state = INITIAL_STUDENTS_STATE, { type, payload }) => {
             return { ...state, singleStudent: null };
         case StudentsActionType.ADD_STUDENT:
             return {...state, addingStudents: payload}
+        case StudentsActionType.UPDATE_STUDENT:
+            return {...state, singleStudent: payload};
         default:
             return state;
     }
 }
 
-export default studentReducer
+export default studentReducer;

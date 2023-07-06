@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import Navigation from '../components/Navigation';
 import { useDispatch, useSelector } from "react-redux";
-import ListingStudents from "../components/ListingStudents";
-import { fetchAllStudentsThunk } from '../redux/students/students.actions';
-import { deleteStudentThunk } from '../redux/students/students.actions';
-
+import { fetchAllStudentsThunk, deleteStudentThunk } from '../redux/students/students.actions';
+import ListingStudents from '../components/ListingStudents';
 
 function Students() {
   const allStudents = useSelector((state) => state.students.allStudents);
