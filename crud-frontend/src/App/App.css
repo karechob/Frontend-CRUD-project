@@ -165,3 +165,6 @@ p, h2{
 .student-title {
   text-align: center;
 }
+.add-btn {
+  justify-content: center;
+}
