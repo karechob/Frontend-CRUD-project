@@ -14,7 +14,7 @@ export default function ListingStudents(props) {
             <h1>{item.lastName}, {item.firstName}</h1>
             <p>Currently attending {item.campus}</p>
             <Link to={`/student/${item.id}`}>View Student</Link>
-            <button onClick={() => props.handleDeleteStudent(item.id)}>X</button>
+            <button onClick={() => props.handleDeleteStudent(item.id)}>X DELETE USER</button>
           </div>
         </div>
       );

@@ -162,3 +162,6 @@ h1{
 p, h2{
   color: white;
 }
+.student-title {
+  text-align: center;
+}

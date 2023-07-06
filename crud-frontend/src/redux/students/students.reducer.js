@@ -3,7 +3,6 @@ import StudentsActionType from "./students.types";
 export const INITIAL_STUDENTS_STATE = {
     allStudents: [],
     singleStudent: {},
-    addingStudents: {},
 }
 
 const studentReducer = (state = INITIAL_STUDENTS_STATE, { type, payload }) => {
@@ -18,7 +17,7 @@ const studentReducer = (state = INITIAL_STUDENTS_STATE, { type, payload }) => {
         case StudentsActionType.DELETE_STUDENT:
             return { ...state, singleStudent: null };
         case StudentsActionType.ADD_STUDENT:
-            return {...state, addingStudents: payload}
+            return { ...state, allStudents: [...state.allStudents, payload] };
         case StudentsActionType.UPDATE_STUDENT:
             return {...state, singleStudent: payload};
         default:
