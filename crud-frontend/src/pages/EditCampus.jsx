@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams, useNavigate } from 'react-router-dom';
 import { updateCampusThunk } from '../redux/campuses/campuses.actions';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 function EditCampus() {
@@ -63,6 +65,7 @@ function EditCampus() {
       dispatch(updateCampusThunk(updatedCampus))
         .then(() => {
           navigate(`/campuses/${campusId}`);
+          toast.error('Campus updated successfully');
         })
         .catch((error) => {
           console.log(error);
