@@ -4,7 +4,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { updateCampusThunk } from '../redux/campuses/campuses.actions';
 
 
-function EditCampus() {
+function EditCampus(props) {
 
   const { campusId } = useParams();
   const dispatch = useDispatch();
@@ -58,6 +58,7 @@ function EditCampus() {
         id: campusId,
         name: formData.name,
         address: formData.address,
+        description: formData.description,
         campusId: formData.campusId,
       };
       dispatch(updateCampusThunk(updatedCampus))
@@ -67,6 +68,7 @@ function EditCampus() {
         .catch((error) => {
           console.log(error);
         });
+        props.handleToggleEdit()
     }
   };
 

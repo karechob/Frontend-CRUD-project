@@ -103,6 +103,7 @@ export const updateCampusThunk = (updatedCampus) => {
     try {
       console.log('UPDATE CAMPUS THUNK IS FIRING');
       const response = await axios.put(`http://localhost:8080/api/campus/${updatedCampus.id}`, updatedCampus);
+      console.log(response)
       console.log('UPDATE STUDENT THUNK COMPLETED');
       dispatch(updateCampus(response.data));
     } catch (error) {

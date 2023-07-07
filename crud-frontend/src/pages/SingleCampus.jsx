@@ -3,9 +3,11 @@ import Navigation from "../components/Navigation";
 import { useDispatch, useSelector } from "react-redux";
 import {
   fetchSingleCampusThunk,
-  updateCampusThunk, 
-  deleteCampusThunk
+  updateCampusThunk,
+  deleteCampusThunk,
 } from "../redux/campuses/campuses.actions";
+
+import { deleteStudentThunk } from "../redux/students/students.actions";
 import { useParams, useNavigate, Link } from "react-router-dom";
 import EditCampus from "./EditCampus";
 
@@ -34,6 +36,11 @@ function SingleCampus() {
     navigate("/campuses");
   };
 
+  const handleDeleteStudent = (studentId) => {
+    dispatch(deleteStudentThunk(studentId));
+    window.location.reload()
+  };
+
   return (
     <div>
       <Navigation />
@@ -57,11 +64,17 @@ function SingleCampus() {
             <EditCampus
               campus={singleCampus}
               handleUpdateCampus={handleUpdateCampus}
+              handleToggleEdit={handleToggleEdit}
             />
           ) : (
             <div className="btn-container">
               <button onClick={handleToggleEdit}>Edit Campus</button>
-              <button className="btn-campus-delete" onClick={handleRemoveCampus}>X</button>
+              <button
+                className="btn-campus-delete"
+                onClick={handleRemoveCampus}
+              >
+                X
+              </button>
             </div>
           )}
 
@@ -78,7 +91,12 @@ function SingleCampus() {
                       <Link to={`/student/${student.id}`}>
                         {student.firstName}
                       </Link>
-                      <button className="btn-campus-delete" onClick={handleRemoveCampus}>X</button>
+                      <button
+                        className="btn-campus-delete"
+                        onClick={() => handleDeleteStudent(student.id)}
+                      >
+                        X
+                      </button>
                     </li>
                   ))}
                 </ul>
