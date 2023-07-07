@@ -54,24 +54,27 @@ function SingleCampus() {
           ) : (
             <div className="btn-container">
               <button onClick={handleToggleEdit}>Edit Campus</button>
-              <button>X</button>
+              <button className="delete-student-btn">X</button>
             </div>
           )}
 
           <h2 className="campus-title">Enrolled Students:</h2>
+          <div className="btn-container">
+            <button>Add Student</button>
+          </div>
           {singleCampus.students?.length > 0 ? (
             <div className="container-students-in-campus">
               <div className="background-li-ul">
-              <ul className="student-list-ul">
-                {singleCampus.students.map((student) => (
-                  <li key={student.id} className="student-item-li">
-                    <Link to={`/student/${student.id}`}>
-                      {student.firstName}
-                    </Link>
-                    <button className="delete-student-btn">X</button>
-                  </li>
-                ))}
-              </ul>
+                <ul className="student-list-ul">
+                  {singleCampus.students.map((student) => (
+                    <li key={student.id} className="student-item-li">
+                      <Link to={`/student/${student.id}`}>
+                        {student.firstName}
+                      </Link>
+                      <button className="delete-student-btn">X</button>
+                    </li>
+                  ))}
+                </ul>
               </div>
             </div>
           ) : (
