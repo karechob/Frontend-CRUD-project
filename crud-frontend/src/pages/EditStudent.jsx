@@ -78,7 +78,7 @@ function EditStudent() {
       dispatch(updateStudentThunk(updatedStudent))
         .then(() => {
           navigate(`/student/${studentId}`);
-          toast.error('Student updated successfully');
+          toast.success('Student updated successfully');
         })
         .catch((error) => {
           // Handle error, if any

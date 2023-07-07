@@ -27,7 +27,7 @@ function SingleStudent() {
   const handleDeleteStudent = () => {
     dispatch(deleteStudentThunk(studentId));
     navigate("/students");
-    toast.error('Student deleted successfully');
+    toast.success('Student deleted successfully');
   };
 
   const handleToggleEdit = () => {

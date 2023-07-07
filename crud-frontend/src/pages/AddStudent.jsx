@@ -3,6 +3,8 @@ import { addStudentThunk } from "../redux/students/students.actions";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import Navigation from "../components/Navigation";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function AddStudent() {
   const dispatch = useDispatch();
@@ -22,6 +24,7 @@ function AddStudent() {
     console.log("this is student data")
     console.log(studentdata)
     navigate(`/student/${studentdata.id}`);
+    toast.success('Campus updated successfully');
   };
 
 
@@ -38,6 +41,7 @@ function AddStudent() {
       <Navigation />
       <div className="form-style">
         <h1>Add New Student</h1>
+        <ToastContainer />
         <form onSubmit={handleSubmit}>
           <label className="from-label">First Name:</label>
           <input

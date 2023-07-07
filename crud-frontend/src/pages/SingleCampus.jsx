@@ -34,14 +34,14 @@ function SingleCampus() {
   const handleRemoveCampus = () => {
     dispatch(deleteCampusThunk(campusId));
     navigate("/campuses");
-    toast.error('Campus removed successfully');
+    toast.success('Campus removed successfully');
   };
 
   return (
     <div>
       <Navigation />
       <h1 className="campus-title">Campus</h1>
-      
+
       <ToastContainer />
       {singleCampus ? (
         <div>

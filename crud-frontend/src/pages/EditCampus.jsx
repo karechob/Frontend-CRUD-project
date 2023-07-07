@@ -65,7 +65,7 @@ function EditCampus() {
       dispatch(updateCampusThunk(updatedCampus))
         .then(() => {
           navigate(`/campuses/${campusId}`);
-          toast.error('Campus updated successfully');
+          toast.success('Campus updated successfully');
         })
         .catch((error) => {
           console.log(error);
@@ -76,7 +76,7 @@ function EditCampus() {
   return (
     <div>
       <h2>Edit Student</h2>
-      
+
       <ToastContainer />
       <form onSubmit={handleSubmit}>
         <div>
