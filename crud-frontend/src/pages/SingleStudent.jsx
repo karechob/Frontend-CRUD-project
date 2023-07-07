@@ -8,6 +8,7 @@ import {
 } from "../redux/students/students.actions";
 import { useParams, useNavigate, Link } from "react-router-dom";
 import EditStudent from "./EditStudent";
+import { deleteCampusThunk } from "../redux/campuses/campuses.actions";
 
 function SingleStudent() {
   const [forceRerenderKey, setForceRerenderKey] = useState(0);
@@ -30,9 +31,14 @@ function SingleStudent() {
     setIsEditing((prevIsEditing) => !prevIsEditing);
   };
 
-  const unenrollStudent = () => {
-    const updatedStudent = { ...singleStudent, campusId: null };
-    dispatch(updateStudentThunk(updatedStudent));
+  // const unenrollStudent = () => {
+  //   const updatedStudent = { ...singleStudent, campusId: null };
+  //   dispatch(updateStudentThunk(updatedStudent));
+  // };
+
+  const handleRemoveCampus = () => {
+    dispatch(deleteCampusThunk(singleStudent.campus.id));
+    window.location.reload();
   };
 
   return (
@@ -72,7 +78,7 @@ function SingleStudent() {
                   <Link className="link-color" to={`/campuses/${singleStudent.campus.id}`}>
                     {singleStudent.campus.name}
                   </Link>
-                  <button className="btn-campus-delete" onClick={unenrollStudent}>Unenroll</button>
+                  <button className="btn-campus-delete" onClick={handleRemoveCampus}>Unenroll</button>
                 </h2>
               </div>
             ) : (
