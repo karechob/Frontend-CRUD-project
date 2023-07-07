@@ -19,6 +19,8 @@ function SingleStudent() {
   const navigate = useNavigate();
   const [isEditing, setIsEditing] = useState(false);
 
+  setForceRerenderKey(studentId)
+
   useEffect(() => {
     dispatch(fetchSingleStudentThunk(studentId));
   }, [dispatch, studentId, forceRerenderKey]);

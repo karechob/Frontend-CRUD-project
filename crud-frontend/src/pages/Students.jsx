@@ -13,15 +13,15 @@ function Students() {
   const dispatch = useDispatch();
   const [rerender, setRerender] = useState(false);
 
-  function fetchAllStudents() {
-    console.log("RUNNING DISPATCH FROM FETCHALLSTUDENTS");
-    return dispatch(fetchAllStudentsThunk());
-  }
+  // function fetchAllStudents() {
+  //   console.log("RUNNING DISPATCH FROM FETCHALLSTUDENTS");
+  //   return dispatch(fetchAllStudentsThunk());
+  // }
 
   useEffect(() => {
     console.log("FETCH ALL STUDENTS FIRING IN USEEFFECT");
-    fetchAllStudents();
-  }, [dispatch, rerender]);
+    dispatch(fetchAllStudentsThunk())
+  },[dispatch]);
 
   const handleDeleteStudent = (studentId) => {
     dispatch(deleteStudentThunk(studentId));

@@ -15,7 +15,7 @@ export const fetchAllCampusesThunk = () => {
   return async (dispatch) => {
     try {
       console.log("FETCHALLCAMPUSESTHUNK IS FIRING");
-      const response = await axios.get("http://localhost:8080/api/campuses");
+      const response = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/campuses`);
       console.log("FETCHALLCAMPUSESTHUNK COMPLETED")
       dispatch(fetchAllCampuses(response.data));
     } catch (error) {
@@ -38,7 +38,7 @@ export const fetchSingleCampusThunk = (id) => {
     try {
       console.log("FETCHSINGLECAMPUSTHUNK IS FIRING");
       console.log(id)
-      const response = await axios.get(`http://localhost:8080/api/campus/${id}`);
+      const response = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/campus/${id}`);
       console.log("FETCHSINGLECAMPUSTHUNK COMPLETED")
       dispatch(fetchSingleCampus(response.data));
     } catch (error) {
@@ -60,7 +60,7 @@ export const deleteCampusThunk = (campusId) => {
   return async (dispatch) => {
     try {
       console.log("DELETECAMPUSTHUNK IS FIRING");
-      await axios.delete(`http://localhost:8080/api/campus/${campusId}`);
+      await axios.delete(`${process.env.REACT_APP_BACKEND_URL}/api/campus/${campusId}`);
       console.log("DELETECAMPUSTHUNK COMPLETED")
       dispatch(deleteCampus(campusId));
     } catch (error) {
@@ -81,7 +81,7 @@ export const addCampusThunk = (campusData) => {
   return async (dispatch) => {
     try {
       console.log('ADD CAMPUS THUNK IS FIRING');
-      const response = await axios.post('http://localhost:8080/api/campus/', campusData);
+      const response = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/api/campus/`, campusData);
       const newCampus = response.data;
       dispatch(addCampus(newCampus));
       console.log('ADD CAMPUS THUNK IS COMPLETED');
@@ -102,7 +102,7 @@ export const updateCampusThunk = (updatedCampus) => {
   return async (dispatch) => {
     try {
       console.log('UPDATE CAMPUS THUNK IS FIRING');
-      const response = await axios.put(`http://localhost:8080/api/campus/${updatedCampus.id}`, updatedCampus);
+      const response = await axios.put(`${process.env.REACT_APP_BACKEND_URL}/api/campus/${updatedCampus.id}`, updatedCampus);
       console.log(response)
       console.log('UPDATE STUDENT THUNK COMPLETED');
       dispatch(updateCampus(response.data));
