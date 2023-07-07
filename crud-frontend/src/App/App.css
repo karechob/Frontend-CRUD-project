@@ -89,13 +89,13 @@ li a:hover {
 
 .student-div {
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
   margin-bottom: 150px;
 }
 
 .campus-div {
   display: flex;
-  justify-content: start;
+  justify-content: flex-start;
   margin-bottom: 30px;
 }
 
