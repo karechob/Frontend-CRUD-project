@@ -64,7 +64,6 @@ function SingleCampus() {
             <EditCampus
               campus={singleCampus}
               handleUpdateCampus={handleUpdateCampus}
-              handleToggleEdit={handleToggleEdit}
             />
           ) : (
             <div className="btn-container">

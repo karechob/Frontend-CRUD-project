@@ -37,10 +37,12 @@ function Students() {
           <button className="add-btn">ADD STUDENT</button>
         </Link>
       </div>
+      <div className='container-list-items'>
       <ListingStudents
         list={allStudents}
         handleDeleteStudent={handleDeleteStudent}
       />
+      </div>
     </div>
   );
 }

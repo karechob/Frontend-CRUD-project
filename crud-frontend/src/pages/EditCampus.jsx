@@ -70,9 +70,13 @@ function EditCampus(props) {
     }
   };
 
+  const exitEditMode = () => {
+    window.location.reload();
+  }
+
   return (
     <div className="form-wrapper">
-      <h2 className="campus-title">Edit Student</h2>
+      <h2 className="campus-title">Edit Campus</h2>
       <form className="form-container" onSubmit={handleSubmit}>
         <div>
           <label className='labels-form'>Name:</label>
@@ -111,6 +115,7 @@ function EditCampus(props) {
         </div>
         <div className='btn-container'>
         <button className='save-btn' type="submit">SAVE</button>
+        <button className='save-btn' onClick={exitEditMode}>EXIT</button>
         </div>
       </form>
     </div>
