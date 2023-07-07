@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams, useNavigate } from 'react-router-dom';
 import { updateCampusThunk } from '../redux/campuses/campuses.actions';
 
-
 function EditCampus(props) {
 
   const { campusId } = useParams();
@@ -73,12 +72,12 @@ function EditCampus(props) {
   };
 
   return (
-    <div>
-      <h2>Edit Student</h2>
-      <form onSubmit={handleSubmit}>
+    <div className="form-wrapper">
+      <h2 className="campus-title">Edit Student</h2>
+      <form className="form-container" onSubmit={handleSubmit}>
         <div>
-          <label>Name:</label>
-          <input
+          <label className='labels-form'>Name:</label>
+          <input className='input-form'
             type="text"
             name="name"
             value={formData.name}
@@ -87,8 +86,8 @@ function EditCampus(props) {
           {errors.name && <p>{errors.name}</p>}
         </div>
         <div>
-          <label>Address:</label>
-          <input
+          <label className='labels-form'>Address:</label>
+          <input className='input-form'
             type="text"
             name="address"
             value={formData.address}
@@ -97,8 +96,8 @@ function EditCampus(props) {
           {errors.address && <p>{errors.address}</p>}
         </div>
         <div>
-          <label>Description:</label>
-          <input
+          <label className='labels-form'>Description:</label>
+          <input className='input-form'
             type="text"
             name="description"
             value={formData.description}
@@ -106,7 +105,9 @@ function EditCampus(props) {
           />
           {errors.description && <p>{errors.description}</p>}
         </div>
-        <button type="submit" >Save</button>
+        <div className='btn-container'>
+        <button className='save-btn' type="submit">SAVE</button>
+        </div>
       </form>
     </div>
   )

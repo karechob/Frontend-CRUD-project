@@ -265,9 +265,38 @@ button:hover {
   border: solid black;
   margin-left: 10px;
 }
+
 .link-color {
   color: #eefaf0;
 }
+
 .btn-campus-delete {
   margin-left: 5px;
+}
+
+.labels-form {
+  text-align: center;
+  color: #eefaf0;
+  font-size: large;
+}
+
+.form-container {
+  align-items: center;
+}
+
+.input-form {
+  height: auto;
+  margin: 10px;
+  width: 300px;
+  padding: 8px;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.save-btn {
+  margin-top: 35px;
 }
