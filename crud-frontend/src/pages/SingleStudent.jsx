@@ -56,7 +56,7 @@ function SingleStudent() {
               ) : (
                 <div className="btn-container">
                   <button onClick={handleToggleEdit}>Edit Student</button>
-                  <button className="btn-campus-delete" nClick={handleDeleteStudent}>X</button>
+                  <button className="btn-campus-delete" onClick={handleDeleteStudent}>X</button>
                 </div>
               )}
             </div>

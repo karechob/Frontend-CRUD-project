@@ -3,14 +3,16 @@ import Navigation from "../components/Navigation";
 import { useDispatch, useSelector } from "react-redux";
 import {
   fetchSingleCampusThunk,
-  updateCampusThunk,
+  updateCampusThunk, 
+  deleteCampusThunk
 } from "../redux/campuses/campuses.actions";
-import { useParams, Link } from "react-router-dom";
+import { useParams, useNavigate, Link } from "react-router-dom";
 import EditCampus from "./EditCampus";
 
 function SingleCampus() {
   const { campusId } = useParams();
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const singleCampus = useSelector((state) => state.campuses.singleCampus);
   const [isEditing, setIsEditing] = useState(false);
 
@@ -25,6 +27,11 @@ function SingleCampus() {
   const handleUpdateCampus = (updatedCampus) => {
     dispatch(updateCampusThunk(updatedCampus));
     setIsEditing(false);
+  };
+
+  const handleRemoveCampus = () => {
+    dispatch(deleteCampusThunk(campusId));
+    navigate("/campuses");
   };
 
   return (
@@ -54,7 +61,7 @@ function SingleCampus() {
           ) : (
             <div className="btn-container">
               <button onClick={handleToggleEdit}>Edit Campus</button>
-              <button className="delete-student-btn">X</button>
+              <button className="btn-campus-delete" onClick={handleRemoveCampus}>X</button>
             </div>
           )}
 
@@ -71,7 +78,7 @@ function SingleCampus() {
                       <Link to={`/student/${student.id}`}>
                         {student.firstName}
                       </Link>
-                      <button className="delete-student-btn">X</button>
+                      <button className="btn-campus-delete" onClick={handleRemoveCampus}>X</button>
                     </li>
                   ))}
                 </ul>
