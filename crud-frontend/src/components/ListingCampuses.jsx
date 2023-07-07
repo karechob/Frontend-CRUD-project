@@ -23,7 +23,7 @@ export default function ListingCampuses(props) {
               <h1>{item.name}</h1>{" "}
             </Link>
             <button onClick={() => handleRemoveCampus(item.id)}>
-              Remove Campus
+              X
             </button>
           </div>
         </div>
