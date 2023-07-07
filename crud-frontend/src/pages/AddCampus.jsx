@@ -33,11 +33,11 @@ function AddCampus() {
   return (
     <div>
       <Navigation />
-      <div className="form-style">
-        <h1>Add New Campus</h1>
-        <form onSubmit={handleSubmit}>
-          <label className="from-label">Campus Name:</label>
-          <input
+      <div className="add-form-style">
+        <h1 className="campus-title">Add New Campus</h1>
+        <form onSubmit={handleSubmit} className='add-form-container'>
+          <label className="add-form-label">Campus Name:</label>
+          <input className="add-input-form"
             type="text"
             name="name"
             defaultValue={newCampus.name}
@@ -45,8 +45,8 @@ function AddCampus() {
             required
             pattern="[A-Za-z ]+"
           />
-          <label className="from-label">Address:</label>
-          <input
+          <label className="add-form-label">Address:</label>
+          <input className="add-input-form"
             type="text"
             name="address"
             defaultValue={newCampus.address}
@@ -54,15 +54,15 @@ function AddCampus() {
             required
             pattern="[A-Za-z0-9\- ]+"
           />
-          <label className="from-label">Description:</label>
-          <input
+          <label className="add-form-label">Description:</label>
+          <input className="add-input-form"
             type="text"
             name="description"
             value={newCampus.description}
             onChange={handleNewCampusInput}
             required
           />
-          <button className="btn-submit" type="submit">
+          <button className="add-btn-submit" type="submit">
             Add Campus
           </button>
         </form>

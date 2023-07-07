@@ -37,10 +37,10 @@ function AddStudent() {
     <div>
       <Navigation />
       <div className="form-style">
-        <h1>Add New Student</h1>
-        <form onSubmit={handleSubmit}>
-          <label className="from-label">First Name:</label>
-          <input
+        <h1 className="campus-title">Add New Student</h1>
+        <form onSubmit={handleSubmit} className='add-form-container'>
+          <label className="add-form-label">First Name:</label>
+          <input className="add-input-form"
             type="text"
             name="firstName"
             defaultValue={newStudent.firstName}
@@ -48,8 +48,8 @@ function AddStudent() {
             required
             pattern="[A-Za-z ]+"
           />
-          <label className="from-label">Last Name:</label>
-          <input
+          <label className="add-form-label">Last Name:</label>
+          <input className="add-input-form"
             type="text"
             name="lastName"
             defaultValue={newStudent.lastName}
@@ -57,16 +57,16 @@ function AddStudent() {
             required
             pattern="[A-Za-z ]+"
           />
-          <label className="from-label">Email:</label>
-          <input
+          <label className="add-form-label">Email:</label>
+          <input className="add-input-form"
             type="email"
             name="email"
             value={newStudent.email}
             onChange={handleNewStudentInput}
             required
           />
-          <label className="from-label">GPA:</label>
-          <input
+          <label className="add-form-label">GPA:</label>
+          <input className="add-input-form"
             type="number"
             min={0.0}
             max={4.0}
@@ -76,7 +76,7 @@ function AddStudent() {
             onChange={handleNewStudentInput}
             required
           />
-          <button className="btn-submit" type="submit">
+          <button className="add-btn-submit" type="submit">
             Add Student
           </button>
         </form>

@@ -3,9 +3,11 @@ import Navigation from "../components/Navigation";
 import { useDispatch, useSelector } from "react-redux";
 import {
   fetchSingleCampusThunk,
-  updateCampusThunk, 
-  deleteCampusThunk
+  updateCampusThunk,
+  deleteCampusThunk,
 } from "../redux/campuses/campuses.actions";
+
+import { deleteStudentThunk } from "../redux/students/students.actions";
 import { useParams, useNavigate, Link } from "react-router-dom";
 import EditCampus from "./EditCampus";
 
@@ -32,6 +34,11 @@ function SingleCampus() {
   const handleRemoveCampus = () => {
     dispatch(deleteCampusThunk(campusId));
     navigate("/campuses");
+  };
+
+  const handleDeleteStudent = (studentId) => {
+    dispatch(deleteStudentThunk(studentId));
+    window.location.reload();
   };
 
   return (
@@ -61,13 +68,20 @@ function SingleCampus() {
           ) : (
             <div className="btn-container">
               <button onClick={handleToggleEdit}>Edit Campus</button>
-              <button className="btn-campus-delete" onClick={handleRemoveCampus}>X</button>
+              <button
+                className="btn-campus-delete"
+                onClick={handleRemoveCampus}
+              >
+                X
+              </button>
             </div>
           )}
 
           <h2 className="campus-title">Enrolled Students:</h2>
           <div className="btn-container">
-            <button>Add Student</button>
+            <Link to="/student">
+              <button className="add-btn">ADD STUDENT</button>
+            </Link>
           </div>
           {singleCampus.students?.length > 0 ? (
             <div className="container-students-in-campus">
@@ -78,7 +92,12 @@ function SingleCampus() {
                       <Link to={`/student/${student.id}`}>
                         {student.firstName}
                       </Link>
-                      <button className="btn-campus-delete" onClick={handleRemoveCampus}>X</button>
+                      <button
+                        className="btn-campus-delete"
+                        onClick={() => handleDeleteStudent(student.id)}
+                      >
+                        X
+                      </button>
                     </li>
                   ))}
                 </ul>

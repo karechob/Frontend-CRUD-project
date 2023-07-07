@@ -82,7 +82,7 @@ li a:hover {
 
 .campus-img {
   height: auto;
-  width: 700px;
+  width: 720px;
   margin-left: 40px;
   border-radius: 10px;
 }
@@ -104,7 +104,7 @@ h1 {
 }
 
 .campus-grid {
-  display: inline-flex;
+  display: inline-block;
   margin: 40px;
   justify-content: center;
   margin-bottom: 40px;
@@ -137,8 +137,9 @@ h1 {
 
 .campus-pic img {
   position: absolute;
-  width: 100%;
-  height: 100%;
+  height: auto;
+  width: 300px;
+  height: 300px;
   object-fit: cover;
   border-radius: 20px;
 }
@@ -265,9 +266,80 @@ button:hover {
   border: solid black;
   margin-left: 10px;
 }
+
 .link-color {
   color: #eefaf0;
 }
+
 .btn-campus-delete {
   margin-left: 5px;
+}
+
+.labels-form {
+  text-align: center;
+  color: #eefaf0;
+  font-size: large;
+}
+
+.form-container {
+  align-items: center;
+}
+
+.input-form, .add-input-form{
+  height: auto;
+  margin: 10px;
+  width: 300px;
+  padding: 8px;
+  border-radius: 8px;
+  border: solid black;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.save-btn {
+  margin-top: 35px;
+  margin-left: 8px;
+}
+.container-list-items {
+  align-items: center;
+  margin-left: 60px;
+}
+
+.item-name .card-link {
+  overflow-wrap: break-word;
+}
+
+.item-name {
+  font-size: 22px;
+}
+
+.add-form-style {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.add-form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.add-form-label {
+  color: #eefaf0;
+  margin-bottom: 5px;
+  text-align: center;
+}
+
+.add-btn-submit {
+  margin-top: 18px;
+}
+.item-name-home {
+  font-size: 50px; 
+  overflow-wrap: break-word;
+  margin: 70px;
 }

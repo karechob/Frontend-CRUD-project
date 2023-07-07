@@ -13,11 +13,11 @@ export default function ListingCampuses(props) {
               <img src={item.imageUrl} alt={item.name} />
             </div>
             {/* <h1>{item.name}</h1> */}
+            <div className="div-card-name">
             <Link className="card-link" to={`/campuses/${item.id}`}>
-              {" "}
-              <h1>{item.name}</h1>{" "}
+              <h1 className="item-name">{item.name}</h1>
             </Link>
-
+            </div>
             <button onClick={() => props.handleRemoveCampus(item.id)}>X</button>
           </div>
         </div>

@@ -38,7 +38,9 @@ function Campuses() {
         <button className='add-btn'>ADD CAMPUS</button>
       </Link>
       </div>
+      <div className='container-list-items'>
       <ListingCampuses list={allCampuses} handleRemoveCampus={handleRemoveCampus}/>
+      </div>
     </div>
   );
 }
