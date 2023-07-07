@@ -24,7 +24,7 @@ function AddStudent() {
     console.log("this is student data")
     console.log(studentdata)
     navigate(`/student/${studentdata.id}`);
-    toast.success('Campus updated successfully');
+    toast.success('Student added successfully');
   };
 
 
@@ -39,9 +39,9 @@ function AddStudent() {
   return (
     <div>
       <Navigation />
+      <ToastContainer />
       <div className="form-style">
         <h1>Add New Student</h1>
-        <ToastContainer />
         <form onSubmit={handleSubmit}>
           <label className="from-label">First Name:</label>
           <input
