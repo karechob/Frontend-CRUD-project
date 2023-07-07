@@ -265,3 +265,9 @@ button:hover {
   border: solid black;
   margin-left: 10px;
 }
+.link-color {
+  color: #eefaf0;
+}
+.btn-campus-delete {
+  margin-left: 5px;
+}
