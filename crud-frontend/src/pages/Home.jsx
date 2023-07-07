@@ -8,10 +8,12 @@ function Home() {
     <div>
       <Navigation />
       <div className="student-div">
+        <h1>Connect with other students and discover your campus community!</h1>
         <img className="student-img" src={StudentPicture} alt="group of college students hanging out" />
       </div>
       <div className="campus-div">
         <img className="campus-img" src={CampusPicture} alt="group of college students hanging out" />
+        <h1>Explore the power of student connections!</h1>
       </div>
     </div>
   );
