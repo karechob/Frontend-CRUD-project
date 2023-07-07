@@ -76,6 +76,8 @@ function EditCampus() {
   return (
     <div>
       <h2>Edit Student</h2>
+      
+      <ToastContainer />
       <form onSubmit={handleSubmit}>
         <div>
           <label>Name:</label>
