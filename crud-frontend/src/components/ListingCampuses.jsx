@@ -4,11 +4,6 @@ import { Link } from "react-router-dom";
 export default function ListingCampuses(props) {
   console.log("LIST CAMPUSES COMPONENT");
 
-  const handleRemoveCampus = (campusId) => {
-    props.handleRemoveCampus(campusId);
-    window.location.reload();
-  };
-
   return props.list.length > 0 ? (
     props.list.map((item) => {
       return (
@@ -22,9 +17,8 @@ export default function ListingCampuses(props) {
               {" "}
               <h1>{item.name}</h1>{" "}
             </Link>
-            <button onClick={() => handleRemoveCampus(item.id)}>
-              X
-            </button>
+
+            <button onClick={() => props.handleRemoveCampus(item.id)}>X</button>
           </div>
         </div>
       );
