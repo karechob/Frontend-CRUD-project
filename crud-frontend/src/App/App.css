@@ -285,7 +285,7 @@ button:hover {
   align-items: center;
 }
 
-.input-form {
+.input-form, .add-input-form{
   height: auto;
   margin: 10px;
   width: 300px;
@@ -315,4 +315,26 @@ button:hover {
 
 .item-name {
   font-size: 22px;
+}
+
+.add-form-style {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.add-form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.add-form-label {
+  color: #eefaf0;
+  margin-bottom: 5px;
+  text-align: center;
+}
+
+.add-btn-submit {
+  margin-top: 18px;
 }
