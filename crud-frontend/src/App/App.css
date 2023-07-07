@@ -82,7 +82,7 @@ li a:hover {
 
 .campus-img {
   height: auto;
-  width: 700px;
+  width: 720px;
   margin-left: 40px;
   border-radius: 10px;
 }
@@ -337,4 +337,9 @@ button:hover {
 
 .add-btn-submit {
   margin-top: 18px;
+}
+.item-name-home {
+  font-size: 50px; 
+  overflow-wrap: break-word;
+  margin: 70px;
 }

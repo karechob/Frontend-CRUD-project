@@ -4,7 +4,6 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   fetchSingleStudentThunk,
   deleteStudentThunk,
-  updateStudentThunk,
 } from "../redux/students/students.actions";
 import { useParams, useNavigate, Link } from "react-router-dom";
 import EditStudent from "./EditStudent";

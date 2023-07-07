@@ -38,7 +38,7 @@ function SingleCampus() {
 
   const handleDeleteStudent = (studentId) => {
     dispatch(deleteStudentThunk(studentId));
-    window.location.reload()
+    window.location.reload();
   };
 
   return (
@@ -79,7 +79,9 @@ function SingleCampus() {
 
           <h2 className="campus-title">Enrolled Students:</h2>
           <div className="btn-container">
-            <button>Add Student</button>
+            <Link to="/student">
+              <button className="add-btn">ADD STUDENT</button>
+            </Link>
           </div>
           {singleCampus.students?.length > 0 ? (
             <div className="container-students-in-campus">
