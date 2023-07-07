@@ -8,6 +8,9 @@ import {
 } from "../redux/students/students.actions";
 import { useParams, useNavigate, Link } from "react-router-dom";
 import EditStudent from "./EditStudent";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 function SingleStudent() {
   const [forceRerenderKey, setForceRerenderKey] = useState(0);
@@ -24,6 +27,7 @@ function SingleStudent() {
   const handleDeleteStudent = () => {
     dispatch(deleteStudentThunk(studentId));
     navigate("/students");
+    toast.error('Student deleted successfully');
   };
 
   const handleToggleEdit = () => {
@@ -40,6 +44,7 @@ function SingleStudent() {
       <Navigation />
       <h1 className="campus-title">Student</h1>
 
+      <ToastContainer />
       {singleStudent ? (
         <div>
           <h2 className="campus-title">

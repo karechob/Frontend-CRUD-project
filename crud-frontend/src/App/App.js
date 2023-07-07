@@ -8,6 +8,9 @@ import SingleStudent from '../pages/SingleStudent';
 import AddCampus from '../pages/AddCampus';
 import AddStudent from '../pages/AddStudent';
 import EditStudent from '../pages/EditStudent';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 function App() {
   return (
@@ -25,6 +28,7 @@ function App() {
         <Route path='/campus' element={<AddCampus />} />
         <Route path="/student/:studentId" element={<EditStudent />} />
       </Routes>
+      <ToastContainer />
       <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
       </style>
