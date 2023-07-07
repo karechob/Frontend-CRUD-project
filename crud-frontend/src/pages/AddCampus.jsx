@@ -3,8 +3,6 @@ import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import Navigation from "../components/Navigation";
 import { addCampusThunk } from "../redux/campuses/campuses.actions";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 
 function AddCampus() {
   const dispatch = useDispatch();
@@ -21,7 +19,6 @@ function AddCampus() {
     event.preventDefault();
     const campusData = await dispatch(addCampusThunk(newCampus));
     navigate(`/campuses/${campusData.id}`);
-    toast.success('Campus added successfully');
   };
 
 
@@ -36,13 +33,7 @@ function AddCampus() {
   return (
     <div>
       <Navigation />
-      <ToastContainer />
-      <div className="form-style">
-        <h1>Add New Campus</h1>
-        <form onSubmit={handleSubmit}>
-          <label className="from-label">Campus Name:</label>
-          <input
-      <div className="add-form-style">
+      <div className="add-form-style"></div>
         <h1 className="campus-title">Add New Campus</h1>
         <form onSubmit={handleSubmit} className='add-form-container'>
           <label className="add-form-label">Campus Name:</label>
@@ -76,7 +67,6 @@ function AddCampus() {
           </button>
         </form>
       </div>
-    </div>
   );
 }
 
