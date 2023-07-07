@@ -94,7 +94,7 @@ function EditStudent() {
     <div>
       <h2>Edit Student</h2>
       <ToastContainer />
-      <form onSubmit={handleSubmit}>
+     
     <div className="form-wrapper">
       <h2 className="campus-title">Edit Student</h2>
       <form className="form-container" onSubmit={handleSubmit}>
@@ -176,6 +176,7 @@ function EditStudent() {
           </button>
         </div>
       </form>
+    </div>
     </div>
   );
 }
