@@ -67,7 +67,6 @@ function EditCampus(props) {
         .catch((error) => {
           console.log(error);
         });
-        props.handleToggleEdit()
     }
   };
 
@@ -82,6 +81,8 @@ function EditCampus(props) {
             name="name"
             value={formData.name}
             onChange={handleInputChange}
+            required
+            pattern="[A-Za-z ]+"
           />
           {errors.name && <p>{errors.name}</p>}
         </div>
@@ -92,6 +93,8 @@ function EditCampus(props) {
             name="address"
             value={formData.address}
             onChange={handleInputChange}
+            required
+            pattern="[A-Za-z0-9\- ]+"
           />
           {errors.address && <p>{errors.address}</p>}
         </div>
@@ -102,6 +105,7 @@ function EditCampus(props) {
             name="description"
             value={formData.description}
             onChange={handleInputChange}
+            required
           />
           {errors.description && <p>{errors.description}</p>}
         </div>
