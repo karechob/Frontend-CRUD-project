@@ -8,6 +8,7 @@ import SingleStudent from '../pages/SingleStudent';
 import AddCampus from '../pages/AddCampus';
 import AddStudent from '../pages/AddStudent';
 import EditStudent from '../pages/EditStudent';
+import EditCampus from '../pages/EditCampus';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
