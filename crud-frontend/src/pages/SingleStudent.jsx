@@ -30,6 +30,11 @@ function SingleStudent() {
     setIsEditing((prevIsEditing) => !prevIsEditing);
   };
 
+  const unenrollStudent = () => {
+    const updatedStudent = { ...singleStudent, campusId: null };
+    dispatch(updateStudentThunk(updatedStudent));
+  };
+
   return (
     <div key={forceRerenderKey}>
       <Navigation />
@@ -67,7 +72,7 @@ function SingleStudent() {
                   <Link className="link-color" to={`/campuses/${singleStudent.campus.id}`}>
                     {singleStudent.campus.name}
                   </Link>
-                  <button className="btn-campus-delete" onClick={handleDeleteStudent}>X</button>
+                  <button className="btn-campus-delete" onClick={unenrollStudent}>Unenroll</button>
                 </h2>
               </div>
             ) : (
