@@ -17,6 +17,7 @@ export default function ListingCampuses(props) {
               {" "}
               <h1>{item.name}</h1>{" "}
             </Link>
+
             <button onClick={() => props.handleRemoveCampus(item.id)}>X</button>
           </div>
         </div>
