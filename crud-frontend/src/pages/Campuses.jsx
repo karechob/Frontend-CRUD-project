@@ -20,7 +20,7 @@ function Campuses() {
   useEffect(() => {
     console.log("FETCH ALL CAMPUSES FIRING IN USEEFFECT");
     fetchAllCampuses();
-  }, []);
+  }, [dispatch, rerender]);
 
 
   const handleRemoveCampus = (campusId) => {
