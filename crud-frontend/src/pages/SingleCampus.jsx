@@ -10,8 +10,8 @@ import {
 import { deleteStudentThunk } from "../redux/students/students.actions";
 import { useParams, useNavigate, Link } from "react-router-dom";
 import EditCampus from "./EditCampus";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+// import { ToastContainer, toast } from 'react-toastify';
+// import 'react-toastify/dist/ReactToastify.css';
 
 function SingleCampus() {
   const { campusId } = useParams();
@@ -36,7 +36,7 @@ function SingleCampus() {
   const handleRemoveCampus = () => {
     dispatch(deleteCampusThunk(campusId));
     navigate("/campuses");
-    toast.success('Campus removed successfully');
+    // toast.success('Campus removed successfully');
   };
 
   const handleDeleteStudent = (studentId) => {
@@ -49,7 +49,7 @@ function SingleCampus() {
       <Navigation />
       <h1 className="campus-title">Campus</h1>
 
-      <ToastContainer />
+      {/* <ToastContainer /> */}
       {singleCampus ? (
         <div>
           <h2 className="campus-title">{singleCampus.name}</h2>

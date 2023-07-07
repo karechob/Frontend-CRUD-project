@@ -14,7 +14,7 @@ function Navigation() {
         </ul>
         <ul className="btns-nav">
           <li>
-            <Link to="/home">HOME</Link>
+            <Link to="/">HOME</Link>
           </li>
           <li>
             <Link to="/campuses">CAMPUSES</Link>

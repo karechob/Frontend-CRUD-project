@@ -3,8 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams, useNavigate } from 'react-router-dom';
 import { updateStudentThunk } from '../redux/students/students.actions';
 import { fetchAllCampusesThunk } from '../redux/campuses/campuses.actions';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+// import { ToastContainer, toast } from 'react-toastify';
+// import 'react-toastify/dist/ReactToastify.css';
 
 function EditStudent() {
   const { studentId } = useParams();
@@ -77,7 +77,7 @@ function EditStudent() {
       dispatch(updateStudentThunk(updatedStudent))
         .then(() => {
           navigate(`/student/${studentId}`);
-          toast.success('Student updated successfully');
+          // toast.success('Student updated successfully');
         })
         .catch((error) => {
           // Handle error, if any
@@ -93,7 +93,7 @@ function EditStudent() {
   return (
     <div>
       <h2>Edit Student</h2>
-      <ToastContainer />
+      {/* <ToastContainer /> */}
      
     <div className="form-wrapper">
       <h2 className="campus-title">Edit Student</h2>
