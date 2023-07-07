@@ -5,8 +5,7 @@ import { updateCampusThunk } from '../redux/campuses/campuses.actions';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-
-function EditCampus() {
+function EditCampus(props) {
 
   const { campusId } = useParams();
   const dispatch = useDispatch();
@@ -60,6 +59,7 @@ function EditCampus() {
         id: campusId,
         name: formData.name,
         address: formData.address,
+        description: formData.description,
         campusId: formData.campusId,
       };
       dispatch(updateCampusThunk(updatedCampus))
@@ -73,43 +73,58 @@ function EditCampus() {
     }
   };
 
+  const exitEditMode = () => {
+    window.location.reload();
+  }
+
   return (
     <div>
       <h2>Edit Student</h2>
 
       <ToastContainer />
       <form onSubmit={handleSubmit}>
+    <div className="form-wrapper">
+      <h2 className="campus-title">Edit Campus</h2>
+      <form className="form-container" onSubmit={handleSubmit}>
         <div>
-          <label>Name:</label>
-          <input
+          <label className='labels-form'>Name:</label>
+          <input className='input-form'
             type="text"
             name="name"
             value={formData.name}
             onChange={handleInputChange}
+            required
+            pattern="[A-Za-z ]+"
           />
           {errors.name && <p>{errors.name}</p>}
         </div>
         <div>
-          <label>Address:</label>
-          <input
+          <label className='labels-form'>Address:</label>
+          <input className='input-form'
             type="text"
             name="address"
             value={formData.address}
             onChange={handleInputChange}
+            required
+            pattern="[A-Za-z0-9\- ]+"
           />
           {errors.address && <p>{errors.address}</p>}
         </div>
         <div>
-          <label>Description:</label>
-          <input
+          <label className='labels-form'>Description:</label>
+          <input className='input-form'
             type="text"
             name="description"
             value={formData.description}
             onChange={handleInputChange}
+            required
           />
           {errors.description && <p>{errors.description}</p>}
         </div>
-        <button type="submit" >Save</button>
+        <div className='btn-container'>
+        <button className='save-btn' type="submit">SAVE</button>
+        <button className='save-btn' onClick={exitEditMode}>EXIT</button>
+        </div>
       </form>
     </div>
   )

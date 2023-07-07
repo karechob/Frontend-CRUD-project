@@ -12,7 +12,7 @@ export default function ListingStudents(props) {
             <img src={item.imageUrl} alt={item.firstName}/>
             </div>
             <Link to={`/student/${item.id}`}>
-            <h1>{item.lastName}, {item.firstName}</h1> 
+            <h1 className="item-name" >{item.lastName}, {item.firstName}</h1> 
             </Link> 
             <p>Currently attending {item.campus}</p>
             <button onClick={() => props.handleDeleteStudent(item.id)}>X</button>

@@ -14,28 +14,27 @@ function EditStudent() {
   const campuses = useSelector((state) => state.campuses.allCampuses);
 
   const [formData, setFormData] = useState({
-    firstName: '',
-    lastName: '',
-    gpa: '',
-    email: '',
-    campusId: '',
+    firstName: "",
+    lastName: "",
+    gpa: "",
+    email: "",
+    campusId: "",
   });
   const [errors, setErrors] = useState({});
 
   useEffect(() => {
     console.log("FETCH ALL CAMPUSES FIRING IN USEEFFECT");
-    dispatch(fetchAllCampusesThunk())
-      .then(() => {
-        if (singleStudent) {
-          setFormData({
-            firstName: singleStudent.firstName,
-            lastName: singleStudent.lastName,
-            gpa: singleStudent.gpa,
-            email: singleStudent.email,
-            campusId: singleStudent.campus?.id || '',
-          });
-        }
-      });
+    dispatch(fetchAllCampusesThunk()).then(() => {
+      if (singleStudent) {
+        setFormData({
+          firstName: singleStudent.firstName,
+          lastName: singleStudent.lastName,
+          gpa: singleStudent.gpa,
+          email: singleStudent.email,
+          campusId: singleStudent.campus?.id || "",
+        });
+      }
+    });
   }, [singleStudent, dispatch]);
 
   const handleInputChange = (event) => {
@@ -48,17 +47,17 @@ function EditStudent() {
 
   const validateForm = () => {
     let formErrors = {};
-    if (formData.firstName.trim() === '') {
-      formErrors.firstName = 'First name is required.';
+    if (formData.firstName.trim() === "") {
+      formErrors.firstName = "First name is required.";
     }
-    if (formData.lastName.trim() === '') {
-      formErrors.lastName = 'Last name is required.';
+    if (formData.lastName.trim() === "") {
+      formErrors.lastName = "Last name is required.";
     }
-    if (formData.gpa.trim() === '') {
-      formErrors.gpa = 'GPA is required.';
+    if (formData.gpa.trim() === "") {
+      formErrors.gpa = "GPA is required.";
     }
-    if (formData.email.trim() === '') {
-      formErrors.email = 'Email is required.';
+    if (formData.email.trim() === "") {
+      formErrors.email = "Email is required.";
     }
     setErrors(formErrors);
     return Object.keys(formErrors).length === 0;
@@ -86,57 +85,76 @@ function EditStudent() {
         });
     }
   };
-  
+
+  const exitEditMode = () => {
+    window.location.reload();
+  };
 
   return (
     <div>
       <h2>Edit Student</h2>
       <ToastContainer />
       <form onSubmit={handleSubmit}>
-        
+    <div className="form-wrapper">
+      <h2 className="campus-title">Edit Student</h2>
+      <form className="form-container" onSubmit={handleSubmit}>
         <div>
-          <label>First Name:</label>
+          <label className="labels-form">First Name:</label>
           <input
+            className="input-form"
             type="text"
             name="firstName"
             value={formData.firstName}
             onChange={handleInputChange}
+            required
+            pattern="[A-Za-z ]+"
           />
           {errors.firstName && <p>{errors.firstName}</p>}
         </div>
         <div>
-          <label>Last Name:</label>
+          <label className="labels-form">Last Name:</label>
           <input
+            className="input-form"
             type="text"
             name="lastName"
             value={formData.lastName}
             onChange={handleInputChange}
+            required
+            pattern="[A-Za-z ]+"
           />
           {errors.lastName && <p>{errors.lastName}</p>}
         </div>
         <div>
-          <label>GPA:</label>
+          <label className="labels-form">GPA:</label>
           <input
-            type="text"
+            className="input-form"
+            type="number"
+            min={0.0}
+            max={4.0}
+            step={0.1}
             name="gpa"
             value={formData.gpa}
             onChange={handleInputChange}
+            required
           />
           {errors.gpa && <p>{errors.gpa}</p>}
         </div>
         <div>
-          <label>Email:</label>
+          <label className="labels-form">Email:</label>
           <input
+            className="input-form"
             type="email"
             name="email"
             value={formData.email}
             onChange={handleInputChange}
+            required
           />
           {errors.email && <p>{errors.email}</p>}
         </div>
         <div>
-          <label>Enrolled Campus:</label>
+          <label className="labels-form">Enrolled Campus:</label>
           <select
+            className="input-form"
             name="campusId"
             value={formData.campusId}
             onChange={handleInputChange}
@@ -148,7 +166,15 @@ function EditStudent() {
               </option>
             ))}
           </select>
-        </div><button type="submit" >Save</button>
+        </div>
+        <div className="btn-container">
+          <button className="save-btn" type="submit">
+            SAVE
+          </button>
+          <button className="save-btn" onClick={exitEditMode}>
+            EXIT
+          </button>
+        </div>
       </form>
     </div>
   );
