@@ -82,7 +82,8 @@ function EditCampus(props) {
           <label className='labels-form'>Name:</label>
           <input className='input-form'
             type="text"
-                  value={formData.name}
+            name="name"
+            value={formData.name}
             onChange={handleInputChange}
             required
             pattern="[A-Za-z ]+"
@@ -121,4 +122,4 @@ function EditCampus(props) {
   )
 }
 
-export default EditCampus
+export default EditCampus;

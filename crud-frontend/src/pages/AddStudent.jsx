@@ -3,8 +3,6 @@ import { addStudentThunk } from "../redux/students/students.actions";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import Navigation from "../components/Navigation";
-//import { ToastContainer, toast } from 'react-toastify';
-//import 'react-toastify/dist/ReactToastify.css';
 
 function AddStudent() {
   const dispatch = useDispatch();
@@ -20,11 +18,10 @@ function AddStudent() {
 
   const handleSubmit = async(event) => {
     event.preventDefault();
-    const studentdata = await dispatch(addStudentThunk(newStudent));
+    const studentdata = dispatch(addStudentThunk(newStudent));
     console.log("this is student data")
     console.log(studentdata)
     navigate(`/student/${studentdata.id}`);
-    //toast.success('Student added successfully');
   };
 
 
@@ -39,7 +36,6 @@ function AddStudent() {
   return (
     <div>
       <Navigation />
-      {/* <ToastContainer /> */}
       <div className="form-style">
         <h1 className="campus-title">Add New Student</h1>
         <form onSubmit={handleSubmit} className='add-form-container'>

@@ -17,9 +17,9 @@ function AddCampus() {
 
   const handleSubmit = async(event) => {
     event.preventDefault();
-    const campusData = await dispatch(addCampusThunk(newCampus));
+    const campusData = dispatch(addCampusThunk(newCampus));
     navigate(`/campuses/${campusData.id}`);
-  };
+  }; 
 
 
   const handleNewCampusInput = (event) => {
@@ -33,7 +33,7 @@ function AddCampus() {
   return (
     <div>
       <Navigation />
-      <div className="add-form-style"></div>
+      <div className="add-form-style">
         <h1 className="campus-title">Add New Campus</h1>
         <form onSubmit={handleSubmit} className='add-form-container'>
           <label className="add-form-label">Campus Name:</label>
@@ -67,6 +67,7 @@ function AddCampus() {
           </button>
         </form>
       </div>
+    </div>
   );
 }
 
