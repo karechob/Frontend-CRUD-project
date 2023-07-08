@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import Navigation from "../components/Navigation";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchAllCampusesThunk } from "../redux/campuses/campuses.actions";
@@ -10,7 +10,7 @@ import { Link } from 'react-router-dom';
 function Campuses() {
   const allCampuses = useSelector((state) => state.campuses.allCampuses);
   const dispatch = useDispatch();
-  //const [rerender, setRerender] = useState(false);
+  const [rerender, setRerender] = useState(false);
 
   function fetchAllCampuses() {
     console.log("RUNNING DISPATCH FROM FETCHALLCAMPUSES");
@@ -20,15 +20,12 @@ function Campuses() {
   useEffect(() => {
     console.log("FETCH ALL CAMPUSES FIRING IN USEEFFECT");
     fetchAllCampuses();
-  })
-  // }, [dispatch, fetchAllCampuses]);
-
-  // dispatch, rerender
+  });
 
 
   const handleRemoveCampus = (campusId) => {
     dispatch(deleteCampusThunk(campusId));
-    //setRerender(!rerender);
+    setRerender(!rerender);
   };
 
 

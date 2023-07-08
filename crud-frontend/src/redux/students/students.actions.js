@@ -15,7 +15,7 @@ export const fetchAllStudentsThunk = () => {
   return async (dispatch) => {
     try {
       console.log("FETCHALLSTUDENTSTHUNK IS FIRING");
-      const response = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/students`);
+      const response = await axios.get(`${process.env.LOCAL_URL}/api/students`);
       console.log("FETCHALLSTUDENTSTHUNK COMPLETED")
       dispatch(fetchAllStudents(response.data));
     } catch (error) {
@@ -37,7 +37,7 @@ export const fetchSingleStudentThunk = (id) => {
   return async (dispatch) => {
     try {
       console.log("FETCHSINGLESTUDENTTHUNK IS FIRING");
-      const response = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/student/${id}`);
+      const response = await axios.get(`${process.env.LOCAL_URL}/api/student/${id}`);
       console.log("FETCSINGLESTUDENTTHUNK COMPLETED")
       dispatch(fetchSingleStudent(response.data));
     } catch (error) {
@@ -59,7 +59,7 @@ export const deleteStudentThunk = (studentId) => {
   return async (dispatch) => {
     try {
       console.log("DELETESTUDENTTHUNK IS FIRING");
-      await axios.delete(`${process.env.REACT_APP_BACKEND_URL}/api/student/${studentId}`);
+      await axios.delete(`${process.env.LOCAL_URL}/api/student/${studentId}`);
       console.log("DELETESTUDENTTHUNK COMPLETED")
       dispatch(deleteStudent(studentId));
     } catch (error) {
@@ -80,7 +80,7 @@ export const addStudentThunk = (studentData) => {
   return async (dispatch) => {
     try {
       console.log('ADD STUDENT THUNK IS FIRING');
-      const response = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/api/student/`, studentData);
+      const response = await axios.post(`${process.env.LOCAL_URL}/api/student/`, studentData);
       const newStudent = response.data;
       dispatch(addStudent(newStudent));
       console.log('ADD STUDENT THUNK IS COMPLETED');
@@ -101,7 +101,7 @@ export const updateStudentThunk = (updatedStudent) => {
   return async (dispatch) => {
     try {
       console.log('UPDATE STUDENT THUNK IS FIRING');
-      const response = await axios.put(`${process.env.REACT_APP_BACKEND_URL}/api/student/${updatedStudent.id}`, updatedStudent);
+      const response = await axios.put(`${process.env.LOCAL_URL}/api/student/${updatedStudent.id}`, updatedStudent);
       console.log('UPDATE STUDENT THUNK COMPLETED');
       dispatch(updateStudent(response.data));
     } catch (error) {
