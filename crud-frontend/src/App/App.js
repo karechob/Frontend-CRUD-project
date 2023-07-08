@@ -17,7 +17,7 @@ function App() {
         <Home />
       </div> */}
       <Routes>
-        <Route path='/home' element={<Home />} />
+        <Route path='/' element={<Home />} />
         <Route exact path='/students' element={<Students />} />
         <Route exact path='/campuses' element={<Campuses />} />
         <Route path="/campuses/:campusId" Component={SingleCampus} />
